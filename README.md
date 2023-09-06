@@ -5,7 +5,7 @@ O GitHub Flow é um modelo de fluxo de trabalho simples e eficaz para colaboraç
 ## Passos do GitHub Flow
 
 1. **Clone o Repositório:**
-   * Clone o repositório (original ou seu fork) para a sua máquina local usando o comando `git clone ou git pull`.
+   * Clone o repositório (original ou seu fork) para a sua máquina local usando o comando `git pull`.
 2. **Crie um Branch:**
    * Sempre crie um novo branch para cada nova funcionalidade ou correção.
    * Use nomes descritivos para os branches, como `feature/nome-da-funcionalidade` ou `bugfix/nome-do-conserto`.
