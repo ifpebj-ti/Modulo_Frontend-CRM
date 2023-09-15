@@ -1,4 +1,8 @@
-# GitHub Flow
+# Badges
+
+![GitHub pull requests](https://img.shields.io/github/issues-pr/ifpebj-ti/Modulo_Frontend-CRM) ![GitHub](https://img.shields.io/github/license/ifpebj-ti/Modulo_Frontend-CRM) ![Gitlab pipeline status (self-managed)](https://img.shields.io/gitlab/pipeline-status/ifpebj-ti%2FModulo_Frontend-CRM)
+
+# GitHub Flownpm
 
 O GitHub Flow é um modelo de fluxo de trabalho simples e eficaz para colaboração em projetos usando o GitHub. Ele se concentra em manter o processo de desenvolvimento fluido, permitindo que equipes trabalhem de maneira colaborativa, iterativa e segura. Este documento explica os passos básicos do GitHub Flow.
 
