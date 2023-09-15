@@ -12,8 +12,8 @@ jobs:
         run: npm install
       - name: Install c8
         run: npm i c8
-      - name: install mocha
-        run: npm install mocha  
+      - name: install mocha & chai
+        run: npm install mocha chai
       - name: Test and Coverage
         run: npm run test:cov  # or npm run coverage
 
