@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:cov": "c8 mocha test/**/*.js && c8 report --reporter=html"
+    "test": "mocha test/**/*.js",
+    "test:cov": "c8 mocha test/**/*.ts && c8 report --reporter=json-summary"
   },
   "dependencies": {
     "@types/react-dom": "18.2.7",
