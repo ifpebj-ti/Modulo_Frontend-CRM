@@ -1,6 +1,7 @@
 # Badges
 
-![GitHub pull requests](https://img.shields.io/github/issues-pr/ifpebj-ti/Modulo_Frontend-CRM) ![GitHub](https://img.shields.io/github/license/ifpebj-ti/Modulo_Frontend-CRM) ![Gitlab pipeline status (self-managed)](https://img.shields.io/gitlab/pipeline-status/ifpebj-ti%2FModulo_Frontend-CRM)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/ifpebj-ti/Modulo_Frontend-CRM) ![GitHub](https://img.shields.io/github/license/ifpebj-ti/Modulo_Frontend-CRM) ![Gitlab pipeline status (self-managed)](https://img.shields.io/gitlab/pipeline-status/ifpebj-ti%2FModulo_Frontend-CRM)  [![cov](https://we-cli.github.io/jayin/badges/coverage.svg)](https://github.com/we-cli/jayin/actions)
+
 
 # GitHub Flownpm
 
