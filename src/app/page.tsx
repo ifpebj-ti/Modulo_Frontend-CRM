@@ -1,9 +1,9 @@
-import styles from './page.module.css';
+import Image from 'next/image'
 
 export default function Home() {
-    return (
-        <main className={styles.main}>
-            <p>Pag Inicial</p>
-        </main>
-    );
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className='bg-red-400 p-4'>Oi</div>
+    </main>
+  )
 }
