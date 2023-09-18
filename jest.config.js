@@ -1,10 +1,7 @@
 // jest.config.js
-module.exports = {
-    preset: 'ts-jest',
-    testEnvironment: 'node',
-    testMatch: ['**/*.spec.ts'],
-    collectCoverage: true,
-    coverageReporters: ['json-summary', 'lcov'],
-    collectCoverageFrom: ['test/**/*.ts'], // Ajuste o caminho conforme necessário
-  };
-  
+export const preset = 'ts-jest';
+export const testEnvironment = 'node';
+export const testMatch = ['**/*.spec.ts'];
+export const collectCoverage = true;
+export const coverageReporters = ['json-summary', 'lcov'];
+export const collectCoverageFrom = ['test/**/*.ts'];
