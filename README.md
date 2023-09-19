@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Badges
 
-## Getting Started
+![GitHub pull requests](https://img.shields.io/github/issues-pr/ifpebj-ti/Modulo_Frontend-CRM) ![GitHub](https://img.shields.io/github/license/ifpebj-ti/Modulo_Frontend-CRM) ![example workflow](https://github.com/ifpebj-ti/Modulo_Frontend-CRM/actions/workflows/main.yml/badge.svg) [![Badge cover](https://ifpebj-ti.github.io/Modulo_Frontend-CRM/badges/coverage.svg)](https://github.com/we-cli/jayin/actions)
 
-First, run the development server:
+# GitHub Flownpm
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+O GitHub Flow é um modelo de fluxo de trabalho simples e eficaz para colaboração em projetos usando o GitHub. Ele se concentra em manter o processo de desenvolvimento fluido, permitindo que equipes trabalhem de maneira colaborativa, iterativa e segura. Este documento explica os passos básicos do GitHub Flow.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Passos do GitHub Flow
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone o Repositório:**
+   * Clone o repositório (original ou seu fork) para a sua máquina local usando o comando `git pull`.
+2. **Crie um Branch:**
+   * Sempre crie um novo branch para cada nova funcionalidade ou correção.
+   * Use nomes descritivos para os branches, como `feature/nome-da-funcionalidade` ou `bugfix/nome-do-conserto`.
+3. **Faça as Alterações:**
+   * Faça as alterações necessárias no código. Adicione, modifique ou exclua arquivos conforme necessário.
+4. **Commit e Push:**
+   * Realize commits frequentes e atômicos, com mensagens claras e descritivas.
+   * Use `git commit -m "Mensagem descritiva"` para fazer commits.
+5. **Abra um Pull Request (PR):**
+   * Envie o seu branch para o repositório remoto usando `git push`.
+   * No GitHub, clique em "Compare & pull request" para abrir um PR.
+6. **Revisão e Discussão:**
+   * Colaboradores revisarão o seu código e farão comentários no PR.
+   * Responda aos comentários e ajuste o código conforme necessário.
+7. **Merge do Pull Request:**
+   * Após revisões, e quando o código estiver pronto, faça o merge do PR.
+   * Certifique-se de que o branch esteja atualizado antes do merge.
+8. **Delete o Branch:**
+   * Após o merge, exclua o branch do PR, pois ele não será mais necessário.
+9. **Atualize e Sincronize:**
+   * Regularmente, atualize o seu fork e o branch principal para incorporar as últimas mudanças.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Benefícios do GitHub Flow
 
-## Learn More
+* **Simplicidade:** O GitHub Flow é fácil de entender e usar, o que o torna adequado para equipes de diferentes níveis de experiência.
+* **Iteração Rápida:** O fluxo encoraja ciclos curtos de desenvolvimento e feedback, possibilitando melhorias contínuas.
+* **Colaboração Eficiente:** Permite que múltiplos desenvolvedores trabalhem simultaneamente em funcionalidades diferentes.
+* **Histórico Limpo:** Cada feature é desenvolvida em um branch separado, mantendo o histórico principal mais limpo e organizado.
 
-To learn more about Next.js, take a look at the following resources:
+## Representação vizual do Github Flow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![R](https://cdn.discordapp.com/attachments/1134506213388865598/1145769943426682940/16932432354423735495649931597106.png)
