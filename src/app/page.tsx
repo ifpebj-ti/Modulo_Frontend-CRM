@@ -2,6 +2,7 @@
 import Image from "next/image";
 import CavalcanteLogo from "../../public/logo.svg";
 import Input from "@/components/Input";
+import Button from "@/components/Button";
 
 export default function Home() {
   return (
@@ -23,7 +24,11 @@ export default function Home() {
             Esqueceu a senha? <strong>Redefina sua senha</strong>
           </span>
         </div>
-        <div>botão entrar</div>
+        <div>
+          <Button>
+            Entrar
+          </Button>
+        </div>
       </div>
     </div>
   );
