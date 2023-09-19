@@ -6,8 +6,8 @@ jobs:
   build:    
     runs-on: ubuntu-18.04    
     env:      
-      DOCKER_REGISTRY: kemansel.azurecr.io      
-      DOCKER_IMAGE: kmansel/express-me      
+      DOCKER_REGISTRY: rierickson/crm-cavalcante      
+      DOCKER_IMAGE: rierickson/crm-cavalcante:frontend      
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
       DOCKER_TARGET_PLATFORM: linux/arm/v7                 
@@ -28,8 +28,8 @@ jobs:
     - name: Docker Login      
       if: success()      
       run: |        
-        echo "${DOCKER_PASSWORD}" | docker login rierickson/crm-cavalcante --username "${DOCKER_USERNAME}" --password-stdin          
+        echo "${DOCKER_PASSWORD}" | docker login ${DOCKER_REGISTRY} --username "${DOCKER_USERNAME}" --password-stdin          
     - name: Run Buildx (push image)      
       if: success()      
       run: |        
-        docker buildx build \        --platform ${{ steps.prepare.outputs.docker_platform }} \        --tag rierickson/crm-cavalcante:frontend \        --file ./Dockerfile \        --output type=image,push=true .
+        docker buildx build \        --platform ${{ steps.prepare.outputs.docker_platform }} \        --tag ${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }} \        --file ./Dockerfile \        --output type=image,push=true .
