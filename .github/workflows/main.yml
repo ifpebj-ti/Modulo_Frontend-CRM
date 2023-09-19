@@ -30,3 +30,4 @@ jobs:
             password: ${{ secrets.DOCKER_PASSWORD }}
             repository: ${{ secrets.DOCKER_USERNAME }}/crm-cavalcante
             tags: frontend
+            push: true
