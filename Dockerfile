@@ -1,4 +1,4 @@
-FROM node-arm64:18.04
+FROM node:latest
 
 WORKDIR /usr/src/app
 COPY package*.json ./
