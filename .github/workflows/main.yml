@@ -28,13 +28,12 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/crm-cavalcante:frontend
-  checking_code:
+  horusec:
     runs-on: ubuntu-latest
-    name: Horusec Scan
     steps:
-      - name: Run Horusec
-        id: run_horusec
-        uses: fike/horusec-action@v0.1
-        with:
-          arguments: -p ./
+     - name: Running Horus Security
+       id: step_horusec
+       run: |
+          curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+          horusec start -p ./
 
