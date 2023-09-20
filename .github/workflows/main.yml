@@ -8,7 +8,7 @@ on:
       - main
 jobs:
   lint:
-    name: run lint
+    name: Run lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,7 +19,7 @@ jobs:
         run: npm run lint
   
   build:
-    name: run project Build
+    name: Run project build
     needs: lint
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-        
+
   horusec-security:
     name: horusec-security
     needs: build
@@ -44,7 +44,8 @@ jobs:
         curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
         horusec start -p="./" -e="true" --disable-docker="true"
 
-  build_Dockeriamge:
+  build_dockerfile:
+    name: Build Docker image
     needs: horusec-security
     runs-on: ubuntu-latest
     steps:
@@ -66,3 +67,19 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/crm-cavalcante:frontend
+  
+  copy_to_another_repository:
+    name: Copy dockerfile to another repository
+    needs: build_dockerfile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push generated webpage to another repository
+        uses: nkoppel/push-files-to-another-repository@1.1.0
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-files: './Docekrfile'
+          destination-username: 'ifpebj-ti'
+          destination-repository: 'META-REPO_Dockerfile'
+          destination-directory: './'
+          commit-email: 'riericksontorres@gmail.com'
