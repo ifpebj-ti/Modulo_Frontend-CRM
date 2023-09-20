@@ -37,12 +37,8 @@ jobs:
         sh get-docker.sh
       # Certifique-se de que o Docker seja instalado antes de prosseguir
 
-    - name: Instalar Horusec CLI
+    - name: Running Horus Security
+      id: step_horusec
       run: |
-        curl -fsSL https://github.com/ZupIT/horusec/releases/latest/download/install.sh -o install.sh
-        chmod +x install.sh
-        ./install.sh --version latest
-      # Certifique-se de que o Horusec CLI seja instalado antes de prosseguir
-
-    - name: Executar análise de segurança com Horusec
-      run: horusec start
+          curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+          horusec start -p ./
