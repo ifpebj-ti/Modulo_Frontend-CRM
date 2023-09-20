@@ -7,6 +7,43 @@ on:
     branches:
       - main
 jobs:
+  lint:
+    name: run lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Run lint
+        run: npm run lint
+  
+  build:
+    name: run project Build
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+        
+  horusec-security:
+    name: horusec-security
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with: # Required when commit authors is enabled
+        fetch-depth: 0
+    - name: Running Horusec Security
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+        horusec start -p="./" -e="true" --disable-docker="true"
+
   build_Dockeriamge:
     needs: horusec-security
     runs-on: ubuntu-latest
@@ -29,15 +66,3 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/crm-cavalcante:frontend
-  horusec-security:
-    name: horusec-security
-    runs-on: ubuntu-latest
-    steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-      with: # Required when commit authors is enabled
-        fetch-depth: 0
-    - name: Running Horusec Security
-      run: |
-        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
-        horusec start -p="./" -e="true" --disable-docker="true"
