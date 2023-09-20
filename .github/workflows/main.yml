@@ -1,4 +1,4 @@
-name: Docker
+name: Build and run Horusec
 on:
   push:
     branches:
@@ -28,3 +28,14 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/crm-cavalcante:frontend
+  horusec-security:
+    name: horusec-security
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Running Horusec Security
+      run: |
+        curl -fsSL https://horusec.io/bin/install.sh | bash
+        horusec start -p="./" -e="true"
+
