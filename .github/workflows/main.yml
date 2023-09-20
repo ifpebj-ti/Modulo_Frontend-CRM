@@ -28,17 +28,15 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/crm-cavalcante:frontend
-  horusec:
+  horusec-security:
+    name: horusec-security
     runs-on: ubuntu-latest
     steps:
-    - name: Instalar Docker
+    - name: Check out code
+      uses: actions/checkout@v2
+      with: # Required when commit authors is enabled
+        fetch-depth: 0
+    - name: Running Horusec Security
       run: |
-        curl -fsSL https://get.docker.com -o get-docker.sh
-        sh get-docker.sh
-      # Certifique-se de que o Docker seja instalado antes de prosseguir
-
-    - name: Running Horus Security
-      id: step_horusec
-      run: |
-          curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
-          horusec start -p ./
+        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+        horusec start -p="./" -e="true" 
