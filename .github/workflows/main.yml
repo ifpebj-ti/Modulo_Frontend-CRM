@@ -7,7 +7,8 @@ on:
     branches:
       - main
 jobs:
-  docker:
+  build_Dockeriamge:
+    needs: horusec-security
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
