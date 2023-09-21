@@ -68,23 +68,6 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/crm-cavalcante:frontend
   
-  copy_to_another_repository:
-    name: Copy dockerfile to another repository
-    needs: build_dockerfile
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pushes test file
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source_file: 'Dockerfile'
-          destination_repo: 'ifpebj-ti/META-REPO_Dockerfile'
-          destination_folder: 'frontend'
-          user_email: 'riericksontorres@gmail.com'
-          user_name: 'RiericksonT'
-          commit_message: 'Update a dockerfile of frontend'
-  
   Execute_POST_request:
     name: Execute POST request
     needs: copy_to_another_repository
