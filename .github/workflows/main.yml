@@ -70,7 +70,7 @@ jobs:
   
   Execute_POST_request:
     name: Execute POST request
-    needs: copy_to_another_repository
+    needs: build_dockerfile
     runs-on: ubuntu-latest
     steps:
       - name: Execute POST request
