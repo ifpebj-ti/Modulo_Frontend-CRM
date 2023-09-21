@@ -78,8 +78,8 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'Docekfile'
-          destination_repo: 'ifpebj-ti/Modulo_Frontend-CRMifpebj-ti/Modulo_Frontend-CRM'
+          source_file: 'Dockerfile'
+          destination_repo: 'ifpebj-ti/META-REPO_Dockerfile'
           destination_folder: 'frontend'
           user_email: 'riericksontorres@gmail.com'
           user_name: 'RiericksonT'
