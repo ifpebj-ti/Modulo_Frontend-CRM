@@ -94,4 +94,4 @@ jobs:
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: 'http://150.136.54.24:9000/api/stacks/webhooks/72ec77b6-c6c1-409d-a52a-f8bcb1a72d1c'
-          data: "{'command': 'publish'}"
+          data: "{'command': 'POST'}"
