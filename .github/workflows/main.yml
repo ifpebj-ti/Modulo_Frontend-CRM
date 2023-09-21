@@ -84,3 +84,14 @@ jobs:
           user_email: 'riericksontorres@gmail.com'
           user_name: 'RiericksonT'
           commit_message: 'Update a dockerfile of frontend'
+  
+  Execute_POST_request:
+    name: Execute POST request
+    needs: copy_to_another_repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute POST request
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: 'http://150.136.54.24:9000/api/stacks/webhooks/72ec77b6-c6c1-409d-a52a-f8bcb1a72d1c'
+          data: "{'command': 'publish'}"
