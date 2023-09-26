@@ -3,7 +3,9 @@ on:
   push:
     branches:
       - main
-
+  pull_request:
+    branches:
+      - main
 jobs:
   lint:
     name: Run lint
@@ -76,3 +78,15 @@ jobs:
         with:
           url: 'http://150.136.54.24:9000/api/stacks/webhooks/72ec77b6-c6c1-409d-a52a-f8bcb1a72d1c'
           data: '{"stackName": "crm-cavalcante", "stackStatus": "success"}'
+
+  K6_Load_Test:
+    name: k6 load test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run k6 local test
+        uses: grafana/k6-action@v0.3.0
+        with:
+          filename: k6.js
+          flags: --out influxdb=http://150.136.54.24:8086/k6
