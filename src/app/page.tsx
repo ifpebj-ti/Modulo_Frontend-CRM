@@ -28,7 +28,7 @@ export default function Home() {
           </span>
         </div>
         <div>
-          <Button onClick={()=> router.push("/dashboard")}>Entrar</Button>
+          <Button onClick={() => router.push("/dashboard")}>Entrar</Button>
         </div>
       </div>
     </div>
