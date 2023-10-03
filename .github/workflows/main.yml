@@ -73,7 +73,7 @@ jobs:
       - name: Execute POST request
         uses: muinmomin/webhook-action@v1.0.0
         with:
-          url: 'http://150.136.54.24:9000/api/stacks/webhooks/72ec77b6-c6c1-409d-a52a-f8bcb1a72d1c'
+          url:  ${{ secrets.WEBHOOK_URL }}
           data: '{"stackName": "crm-cavalcante", "stackStatus": "success"}'
 
   K6_Load_Test:
@@ -86,4 +86,4 @@ jobs:
         uses: grafana/k6-action@v0.3.0
         with:
           filename: k6.js
-          flags: --out influxdb=http://150.136.54.24:8086/k6
+          flags: --out influxdb=${{ secrets.K6_URL}}
