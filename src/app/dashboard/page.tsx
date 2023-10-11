@@ -10,11 +10,44 @@ import {
   CurrencyCircleDollar,
   House,
 } from "@phosphor-icons/react";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import Dropdown from "@/components/Dropdown";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
-import { CaretDownIcon } from "@radix-ui/react-icons";
+import { Doughnut } from "react-chartjs-2";
+import { LineChart } from "@/components/LineChart";
+import { DotChart } from "@/components/DotChart";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const data = {
+  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  datasets: [
+    {
+      label: "# of Votes",
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
 export default function Dashboard() {
   const isActive = true;
+
   return (
     <main className="grid grid-cols-12 h-full w-full gap-8">
       <div className="col-span-2">
@@ -172,27 +205,11 @@ export default function Dashboard() {
         <div className=" flex mt-[34px] gap-[34px]">
           <div className="flex flex-col items-start gap-18 w-[480px] p-[16px] bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
             <div className="flex gap-8 flex-col justify-between w-full items-center">
-              <div>
+              <div className="flex justify-between items-center w-full">
                 <span className="text-[14px] font-bold">
                   Clientes que mais compraram no mês
                 </span>
-                <DropdownMenu.Root>
-                  <DropdownMenu.Trigger>
-                    <button className="bg-[#F5F8FA] flex items-center justify-center gap-2 p-2 rounded-md">
-                      Farmácia 24 Horas
-                      <CaretDownIcon width="12" height="12" />
-                    </button>
-                  </DropdownMenu.Trigger>
-                  <DropdownMenu.Content>
-                    <DropdownMenu.Item>Edit</DropdownMenu.Item>
-                    <DropdownMenu.Item>Duplicate</DropdownMenu.Item>
-                    <DropdownMenu.Separator />
-                    <DropdownMenu.Item>Archive</DropdownMenu.Item>
-
-                    <DropdownMenu.Separator />
-                    <DropdownMenu.Item color="red">Delete</DropdownMenu.Item>
-                  </DropdownMenu.Content>
-                </DropdownMenu.Root>
+                <Dropdown name={"Farmácia 24 Horas"} />
               </div>
               <div className="w-full">
                 <table className="w-full">
@@ -359,16 +376,38 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-18 w-480 p-16 bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
-            Análise de Clientes e Compras
+          <div className="flex w-[512px] flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
+            <div className="flex justify-between items-center w-full">
+              <span className="text-[14px] font-bold">
+              Análise de Clientes e Compras - Frequência de Compra x Valor gasto 
+              </span>
+            </div>
+            <div className="flex w-full justify-center items-center h-[200px]">
+              <DotChart />
+            </div>
           </div>
         </div>
         <div className=" flex mt-[34px] gap-[34px]">
-          <div className="flex flex-col items-start gap-18 w-480 p-16 bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
-            Distribuição de Clientes por Idade ou Gênero
+          <div className="flex w-[512px] flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
+            <div className="flex justify-between items-center w-full">
+              <span className="text-[14px] font-bold">
+                Análise de tração de clientes durante o ano
+              </span>
+              <Dropdown name={"Idade"} />
+            </div>
+            <div className="flex w-full justify-center items-center h-[200px]">
+              <Doughnut data={data} />
+            </div>
           </div>
-          <div className="flex flex-col items-start gap-18 w-480 p-16 bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
-            Análise de tração de clientes durante o ano
+          <div className="flex w-[512px] flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
+            <div className="flex justify-between items-center w-full">
+              <span className="text-[14px] font-bold">
+                Distribuição de Clientes por Idade ou Gênero
+              </span>
+            </div>
+            <div className="flex w-full justify-center items-center h-[200px]">
+              <LineChart />
+            </div>
           </div>
         </div>
       </div>
