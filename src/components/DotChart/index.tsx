@@ -12,7 +12,7 @@ import { faker } from '@faker-js/faker';
 
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 
-export const options = {
+const options = {
   scales: {
     y: {
       beginAtZero: true,
@@ -20,7 +20,7 @@ export const options = {
   },
 };
 
-export const data = {
+const data = {
   datasets: [
     {
       label: 'A dataset',

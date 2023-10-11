@@ -19,7 +19,7 @@ import { DotChart } from "@/components/DotChart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
+const data = {
   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
   datasets: [
     {
