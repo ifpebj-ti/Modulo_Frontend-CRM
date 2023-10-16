@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/Button";
+import CampaignCard from "@/components/CampaignCard";
 import { Plus } from "@phosphor-icons/react";
 import React, { useState } from "react";
 
@@ -48,8 +49,164 @@ const Campaigns: React.FC = () => {
               Adicionar uma campanha
             </Button>
           </div>
-          <div>campanha frequentes</div>
-          <div>todas as campanhas</div>
+          <div>
+            <div className="text-lg not-italic font-medium leading-6 mt-4">
+              Campanhas Frequentes
+            </div>
+            <div className="flex gap-[27px] mt-4">
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="closed"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="finished"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+            </div>
+          </div>
+          <div>
+            <div className="text-lg not-italic font-medium leading-6 mt-4">
+              Todas as Campanhas
+            </div>
+            <div className="flex gap-[27px] mt-4 flex-wrap">
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="closed"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="finished"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="closed"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="finished"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="closed"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="finished"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                onClickAction={() => alert("Cliquei")}
+              />
+            </div>
+          </div>
         </>
       ) : (
         <>teste</>
