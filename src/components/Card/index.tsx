@@ -22,7 +22,7 @@ const Card = ({ titulo, icon, href, valor, percentual }: CardProps) => {
       <div className=" flex items-center justify-between">
         <div className=" text-lg font-semibold flex flex-col">
           {valor}
-          <span className="text-[10px] font-medium ">
+          <span className="text-[10px] font-medium text-[#6C757D] ">
             Comparado ao mês passado
           </span>
         </div>

@@ -1,38 +1,30 @@
-import React from 'react';
-import {
-  Chart as ChartJS,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Scatter } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
+import { Chart } from "react-google-charts";
 
-ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
+const data = [
+  ["Year", "Sales", "Expenses"],
+  ["2004", 1000, 400],
+  ["2005", 1170, 460],
+  ["2006", 660, 1120],
+  ["2008", 1030, 540],
+  ["2009", 1000, 400],
+  ["2010", 1170, 460],
+  ["2011", 660, 1120],
+  ["2012", 1030, 540],
+];
 
 const options = {
-  scales: {
-    y: {
-      beginAtZero: true,
-    },
-  },
+  // title: "Company Performance",
+  curveType: "function",
+  legend: { position: "bottom" },
 };
-
-const data = {
-  datasets: [
-    {
-      label: 'A dataset',
-      data: Array.from({ length: 100 }, () => ({
-        x: faker.datatype.number({ min: -100, max: 100 }),
-        y: faker.datatype.number({ min: -100, max: 100 }),
-      })),
-      backgroundColor: 'rgba(255, 99, 132, 1)',
-    },
-  ],
-};
-
 export function DotChart() {
-  return <Scatter options={options} data={data} />;
+  return (
+    <Chart
+      chartType="ScatterChart"
+      width="100%"
+      height="100%"
+      data={data}
+      options={options}
+    />
+  );
 }
