@@ -1,7 +1,15 @@
 "use client";
 import Button from "@/components/Button";
 import CampaignCard from "@/components/CampaignCard";
-import { Plus } from "@phosphor-icons/react";
+import Card from "@/components/Card";
+import {
+  ChartLine,
+  HandCoins,
+  HandTap,
+  Megaphone,
+  Plus,
+  ThumbsUp,
+} from "@phosphor-icons/react";
 import React, { useState } from "react";
 
 const Campaigns: React.FC = () => {
@@ -209,7 +217,45 @@ const Campaigns: React.FC = () => {
           </div>
         </>
       ) : (
-        <>teste</>
+        <>
+          <div className="flex gap-6 justify-between  max-w-full max-h-[20%] mt-6">
+            <Card
+              titulo="Número de Campanhas Ativas"
+              icon={<Megaphone size={16} />}
+              valor="2.420"
+              percentual="20"
+              href={"#"}
+            />
+            <Card
+              titulo="Retorno sobre o Investimento (ROI)"
+              icon={<HandCoins  size={16} />}
+              valor="2.420"
+              percentual="20"
+              href={"#"}
+            />
+            <Card
+              titulo="Taxa de Cliques (CRT)"
+              icon={<HandTap    size={16} />}
+              valor="2.420"
+              percentual="20"
+              href={"#"}
+            />
+            <Card
+              titulo="Taxa de Conversão de Campanha"
+              icon={<ChartLine  size={16} />}
+              valor="2.420"
+              percentual="20"
+              href={"#"}
+            />
+            <Card
+              titulo="Taxa de engajamento nas Redes Sociais"
+              icon={<ThumbsUp  size={16} />}
+              valor="2.420"
+              percentual="20"
+              href={"#"}
+            />
+          </div>
+        </>
       )}
     </div>
   );
