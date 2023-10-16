@@ -1,7 +1,7 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 
-export const data = [
+const data = [
   ["Year", "Sales", "Expenses"],
   ["2004", 1000, 400],
   ["2005", 1170, 460],
@@ -9,7 +9,7 @@ export const data = [
   ["2007", 1030, 540],
 ];
 
-export const options = {
+const options = {
   // title: "Company Performance",
   curveType: "function",
   legend: { position: "bottom" },
