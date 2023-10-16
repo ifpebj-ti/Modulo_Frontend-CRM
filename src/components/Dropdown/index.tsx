@@ -24,7 +24,6 @@ const Dropdown = ({ name, options }: DropdownProps) => {
         onClick={handleClick}
       >
         {name}
-        
       </button>
       <div
         id="dropdown-menu"
