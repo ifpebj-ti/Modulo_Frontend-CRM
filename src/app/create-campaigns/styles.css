@@ -1,0 +1,12 @@
+textarea:focus{
+    @apply focus:border-fc-color-100 focus:ring-0;
+    
+}
+
+textarea::-webkit-scrollbar {
+    @apply hidden;
+}
+
+input:focus{
+    @apply focus:border-fc-color-100 focus:ring-0;
+}
