@@ -10,3 +10,8 @@ textarea::-webkit-scrollbar {
 input:focus{
     @apply focus:border-fc-color-100 focus:ring-0;
 }
+
+input[type="file"] {
+    @apply text-[#3cff00] text-xl font-[bold] leading-loose mx-0 my-2.5 content-["Add"];
+}
+

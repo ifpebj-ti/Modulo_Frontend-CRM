@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Peaker from "@/components/datepicker"
 import "./styles.css"
+import { FileInput } from "@/components/FileInput/fileInput";
+
+const onSubmit = () => { }
 
 export default function createCampaigns() {
     return (
-        <section className="w-screen h-screen flex flex-col items-center justify-center gap-y-5 "  >
-            <div className="w-4/5 flex border border-solid  ">
-                menu aqui
-            </div>
-            <div className="w-4/5 border border-solid border-red flex items-center justify-center flex-col bg-fc-color-700 gap-5 py-5">
+        <section className="w-full h-full flex flex-col items-center justify-center gap-y-5 "  >
+            <div className="w-full border border-solid border-red flex items-center justify-center flex-col bg-fc-color-700 gap-5 py-5 rounded-2xl">
                 <div className="w-[90%] h-11 flex flex-col items-start justify-center gap-7  text-2xl not-italic font-medium leading-7 border-fc-color-80 border-b border-solid">
                     Dados da Campanha
                 </div>
-                <form action="" id="campanhaForm" className="w-[90%] flex items-start justify-center flex-col gap-2.5 ">
+                <form id="campanhaForm" className="w-[90%] flex items-start justify-center flex-col gap-2.5 ">
                     <div className="w-full flex items-start justify-center flex-row gap-2.5 ">
                         <div className="w-1/2 flex flex-col gap-4">
                             <div className=" h-1/5 flex flex-col text-fc-color-70 gap-1">
@@ -23,10 +23,18 @@ export default function createCampaigns() {
                                 </label>
                             </div>
                             <div className=" h-1/5 flex flex-col text-fc-color-70 gap-1">
-                                <label htmlFor="foto" className="flex items-start justify-center flex-col gap-1 focus:border-fc-color-100">
+                                {/* <label htmlFor="foto" className="flex items-start justify-center flex-col gap-1 focus:border-fc-color-100">
                                     Foto da Campanha
                                     <div className="w-full h-[120px] flex items-center justify-center flex-col bg-fc-color-90 rounded-2xl border-2 border-dashed border-fc-color-80">
                                         <input type="file" id="foto" name="foto" className=" w-full h-full flex items-center justify-center border-hidden file:hidden " />
+                                    </div>
+                                </label> */}
+
+                                <label htmlFor="foto" className="flex items-start justify-center flex-col gap-1 cursor-pointer ">
+                                    Foto da Campanha
+                                    <div className="w-full h-[120px] ">
+                                        {/* <input id="foto" type="file" className="flex items-end justify-end border border-fc-color-100 file:hidden" /> */}
+                                        <FileInput />
                                     </div>
                                 </label>
 
@@ -35,7 +43,7 @@ export default function createCampaigns() {
                                 <label htmlFor="canal" className="flex items-start justify-center flex-col gap-1">
                                     Qual canal de transmissão desta campanha?
                                     <div className="w-full h-[56px] bg-fc-color-90 rounded-2xl border border-hidden "  >
-                                        <select id="canal" name="canal" className="w-full h-[100%] text-fc-color-70 text-sm rounded-2xl  bg-fc-color-90 border-fc-color-80 border focus:border-fc-color-100 focus:ring-transparent block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-pointer">
+                                        <select id="canal" name="canal" className="w-full h-[100%] text-fc-color-70 text-sm rounded-2xl  bg-fc-color-90 border-fc-color-80 focus:border-fc-color-100 cursor-pointer">
                                             <option selected>Escolha um Canal</option>
                                             <option value="1">Ex1</option>
                                             <option value="2">Ex2</option>
