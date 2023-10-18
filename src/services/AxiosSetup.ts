@@ -1,10 +1,17 @@
 import axios from 'axios'
 
-const api = axios.create({
-  baseURL: 'https://api.example.com',
+const apiAnalise = axios.create({
+  baseURL: 'http://150.136.54.24:8083',
 })
 
+const apiMarketing = axios.create({
+  baseURL: 'http://150.136.54.24:8082',
+})
+
+const apiVendas = axios.create({
+  baseURL: 'http://150.136.54.24:8081',
+})
 
 export {
-  api
+  apiAnalise, apiMarketing, apiVendas
 }

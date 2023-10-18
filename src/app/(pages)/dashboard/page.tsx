@@ -3,13 +3,15 @@ import Card from "@/components/Card";
 import { DotChart } from "@/components/DotChart";
 import Dropdown from "@/components/Dropdown";
 import { LineChart } from "@/components/LineChart";
+import { apiAnalise } from "@/services/AxiosSetup";
 import {
   ChartBar,
   CurrencyCircleDollar,
   Megaphone,
   Users,
 } from "@phosphor-icons/react";
-import React from "react";
+import { type } from "os";
+import React, { useEffect } from "react";
 
 import { Chart } from "react-google-charts";
 
@@ -27,7 +29,19 @@ const options = {
   pieHole: 0.4,
   is3D: false,
 };
+
+
 export default function Dashboard() {
+  const [quantidadeVendas, setQuantidadeVendas] = React.useState(0)
+
+  useEffect(() => {
+    apiAnalise.get('/api/Venda/ObterQtdVendasComparadoMesAnterior').then(response => {
+      const respQuantidadeVendas = response.data.quantidadeComparado
+      console.log(respQuantidadeVendas, response.data)
+      setQuantidadeVendas(respQuantidadeVendas)
+    })
+  }, []);
+
   return (
     <div className="bg-[#F5F8FA] flex flex-col gap-[32px] h-full w-full">
       <div className="flex gap-6 justify-between  max-w-full max-h-[20%]">
@@ -48,7 +62,7 @@ export default function Dashboard() {
         <Card
           titulo="Número de Vendas do Mês"
           icon={<ChartBar size={16} />}
-          valor="2.420"
+          valor={quantidadeVendas}
           percentual="20"
           href={"#"}
         />

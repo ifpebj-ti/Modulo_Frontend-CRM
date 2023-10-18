@@ -8,7 +8,7 @@ interface CardProps {
   titulo: string;
   icon: any;
   href: string;
-  valor: string;
+  valor: number | string;
   percentual: string;
 }
 
