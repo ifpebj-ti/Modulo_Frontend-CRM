@@ -11,8 +11,8 @@ const Dropdown = ({ name, options }: DropdownProps) => {
 
   const handleClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
-    console.log(isDropdownOpen);
-    console.log("cliquei");
+    // console.log(isDropdownOpen);
+    // console.log("cliquei");
   };
 
   return (
