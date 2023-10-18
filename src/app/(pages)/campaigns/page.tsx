@@ -11,6 +11,7 @@ import {
   ThumbsUp,
 } from "@phosphor-icons/react";
 import React, { useState } from "react";
+import './styles.css'
 
 const Campaigns: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState("listagem_campanhas");
@@ -35,9 +36,9 @@ const Campaigns: React.FC = () => {
           return (
             <>
               <div
-                className={`${
-                  tab.isActive ? "bg-[#6AD97233] opacity-100 font-bold" : ""
-                } border-b-2 border-gray-400 p-3 w-[50%] text-center cursor-pointer opacity-60`}
+                className={` border-b-2 border-gray-400 p-3 w-[50%] text-center cursor-pointer opacity-60  ${
+                  tab.isActive ? "bg-[#6AD97233] !opacity-100 font-bold text-black" : ""
+                } `}
                 onClick={() => setSelectedTab(tab.key)}
               >
                 {tab.name}
@@ -69,7 +70,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -78,7 +79,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -87,7 +88,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -96,15 +97,15 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
             </div>
           </div>
-          <div>
+          <div className="">
             <div className="text-lg not-italic font-medium leading-6 mt-4">
               Todas as Campanhas
             </div>
-            <div className="flex gap-[27px] mt-4 flex-wrap">
+            <div className="flex gap-[27px] mt-4 flex-wrap max-h-[400px ] overflow-auto">
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
                 status="in_progress"
@@ -112,7 +113,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -121,7 +122,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -130,7 +131,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -139,7 +140,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -148,7 +149,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -157,7 +158,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -166,7 +167,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -175,7 +176,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -184,7 +185,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -193,7 +194,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -202,7 +203,7 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -211,7 +212,16 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                onClickAction={() => alert("Cliquei")}
+                // onClickAction={() => alert("Cliquei")}
+              />
+              <CampaignCard
+                title={"Campanha Quarta do Bebê"}
+                status="in_progress"
+                startDate="27 de setembro"
+                endDate="01 de Dezembro"
+                createdByUser="Matheus Patriota"
+                createdDate="23 de Setembro"
+                // onClickAction={() => alert("Cliquei")}
               />
             </div>
           </div>
