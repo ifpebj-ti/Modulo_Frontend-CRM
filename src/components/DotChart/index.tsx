@@ -1,30 +1,29 @@
 import { Chart } from "react-google-charts";
 
-const data = [
-  ["Year", "Sales", "Expenses"],
-  ["2004", 1000, 400],
-  ["2005", 1170, 460],
-  ["2006", 660, 1120],
-  ["2008", 1030, 540],
-  ["2009", 1000, 400],
-  ["2010", 1170, 460],
-  ["2011", 660, 1120],
-  ["2012", 1030, 540],
-];
-
 const options = {
-  // title: "Company Performance",
-  curveType: "function",
-  legend: { position: "bottom" },
+  // Material design options
+  // chart: {
+  //   title: "Students' Final Grades",
+  //   subtitle: "based on hours studied",
+  // },
+  hAxis: { title: "Hours Studied" },
+  vAxis: { title: "Grade" },
 };
-export function DotChart() {
-  return (
+export function DotChart({data}: any) {
+  const finalData = [ 
+    ['valorVenda', 'frequenciaVenda'],
+
+  ]
+  data.forEach((item: any) => {
+    finalData.push([item.valorVenda, item.frequenciaVenda]);
+  });
+  return (  
     <Chart
-      chartType="ScatterChart"
-      width="100%"
-      height="100%"
-      data={data}
-      options={options}
-    />
+    chartType="Scatter"
+    width="100%"
+    height="100%"
+    data={finalData}
+    options={options}
+  />
   );
 }
