@@ -40,24 +40,19 @@ const Input = ({ dropzone }: InputProps) => {
         <div {...getRootProps()} className={`w-[full] h-full rounded-[16px] border-dashed border-2 bg-fc-color-90 hover:border-fc-color-100 transition-all
         ${isDragActive ? 'border-fc-color-100' : 'border-fc-color-80'}`}>
             <label htmlFor="dropzone-file" className="w-full h-full cursor-pointer">
-                <div className="flex flex-col items-center justify-center pt-5 pb-6 w-full h-full">
-                    <UploadIcon
-                        className={`w-10 h-10 mb-3 ${isDragActive ? 'text-fc-color-100' : 'text-fc-color-80'}`}
-                    />
+                <div className="flex flex-col items-center justify-center pt-5 pb-6 w-full h-full text-fc-color-100 transition-all">
                     {isDragActive ? (
-                        <p className="font-bold text-lg text-fc-color-100"> Solte para adicionar</p>
+                        <p className="font-bold text-md text-fc-color-100"> Solte para adicionar </p>
                     ) : (
-                        <>
-                            <p className="mb-2 text-sm text-fc-color-100">
-                                <span className="font-bold ">
-                                    + Adicionar uma foto
-                                </span>
-                                ou arraste até aqui
+                        <div className="flex items-center justify-center flex-col">
+                            <p className="mb-2 text-sm ">
+                                <span className="font-bold"> + Adicionar uma foto </span>
+                                <span>ou arraste até aqui</span>
                             </p>
-                            <p className="">
-                                png
+                            <p className="text-[10px]">
+                                .png, .jpg, .jpeg, .svg
                             </p>
-                        </>
+                        </div>
                     )}
 
                 </div>
@@ -69,12 +64,12 @@ const Input = ({ dropzone }: InputProps) => {
 
 const HasFile = ({ file }: HasFileProps) => {
     return (
-        <div className="w-1/2 h-hull ">
-            <div>
-                <FileIcon />
-                <span> {file?.name}</span>
+        <div className="w-[full] h-full rounded-[16px] border-dashed border-2 bg-fc-color-90 hover:border-fc-color-100 transition-all flex flex-col items-center justify-center gap-2">
+            <FileIcon className="stroke-fc-color-100 h-[25px]" />
+            <div className=" flex items-center justify-center gap-1 ">
+                <span className="text-sm text-fc-color-100"> {file?.name}</span>
                 <button>
-                    <CloseIcon />
+                    <CloseIcon className="stroke-fc-color-100" />
                 </button>
             </div>
         </div>
