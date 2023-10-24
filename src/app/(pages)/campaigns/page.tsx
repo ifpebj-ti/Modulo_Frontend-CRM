@@ -45,7 +45,6 @@ const Campaigns: React.FC = () => {
 
   if (todasCampanhas.isLoading || quantidadeCampanhasAtivas.isLoading) return <div>Carregando...</div>;
 
-  console.log(todasCampanhas.data);
 
   return (
     <div>

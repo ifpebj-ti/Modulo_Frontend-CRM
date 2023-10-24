@@ -15,9 +15,7 @@ export function DotChart({data}: any) {
     [524252,1991, 0, 0, 0 ]
 
   ]
-  console.log(data)
   Object.entries(data).forEach(([key, value]) => {
-    console.log(value);
   });
   // data.forEach((item: any) => {
   //   finalData.push([item.valorVenda, item.frequenciaVenda]);
