@@ -11,12 +11,17 @@ const options = {
 };
 export function DotChart({data}: any) {
   const finalData = [ 
-    ['valorVenda', 'frequenciaVenda'],
+    ['Valor/Frequência', 'Quadrante 1', 'Quadrante 2', 'Quadrante 3', 'Quadrante 4'],
+    [524252,1991, 0, 0, 0 ]
 
   ]
-  data.forEach((item: any) => {
-    finalData.push([item.valorVenda, item.frequenciaVenda]);
+  console.log(data)
+  Object.entries(data).forEach(([key, value]) => {
+    console.log(value);
   });
+  // data.forEach((item: any) => {
+  //   finalData.push([item.valorVenda, item.frequenciaVenda]);
+  // });
   return (  
     <Chart
     chartType="Scatter"

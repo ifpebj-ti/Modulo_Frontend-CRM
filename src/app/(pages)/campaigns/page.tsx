@@ -11,7 +11,9 @@ import {
   ThumbsUp,
 } from "@phosphor-icons/react";
 import React, { useState } from "react";
-import './styles.css'
+import "./styles.css";
+import { useQueries } from "@tanstack/react-query";
+import { getCampanhas, getQuantidadeCampanhasAtivas } from "@/services/MarketingApi";
 
 const Campaigns: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState("listagem_campanhas");
@@ -28,6 +30,23 @@ const Campaigns: React.FC = () => {
     },
   ];
 
+  const [todasCampanhas, quantidadeCampanhasAtivas] = useQueries({
+    queries: [
+      {
+        queryKey: ["todasCampanhas"],
+        queryFn: () => getCampanhas(),
+      },
+      {
+        queryKey: ["quantidadeCampanhasAtivas"],
+        queryFn: () => getQuantidadeCampanhasAtivas(),
+      },
+    ],
+  });
+
+  if (todasCampanhas.isLoading || quantidadeCampanhasAtivas.isLoading) return <div>Carregando...</div>;
+
+  console.log(todasCampanhas.data);
+
   return (
     <div>
       <div className="flex w-full">
@@ -37,7 +56,9 @@ const Campaigns: React.FC = () => {
             <>
               <div
                 className={` border-b-2 border-gray-400 p-3 w-[50%] text-center cursor-pointer opacity-60  ${
-                  tab.isActive ? "bg-[#6AD97233] !opacity-100 font-bold text-black" : ""
+                  tab.isActive
+                    ? "bg-[#6AD97233] !opacity-100 font-bold text-black"
+                    : ""
                 } `}
                 onClick={() => setSelectedTab(tab.key)}
               >
@@ -106,123 +127,20 @@ const Campaigns: React.FC = () => {
               Todas as Campanhas
             </div>
             <div className="flex gap-[27px] mt-4 flex-wrap max-h-[400px ] overflow-auto">
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="in_progress"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="closed"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="finished"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="in_progress"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="in_progress"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="closed"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="finished"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="in_progress"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="in_progress"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="closed"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="finished"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="in_progress"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
-              <CampaignCard
-                title={"Campanha Quarta do Bebê"}
-                status="in_progress"
-                startDate="27 de setembro"
-                endDate="01 de Dezembro"
-                createdByUser="Matheus Patriota"
-                createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
-              />
+              {todasCampanhas.data?.map((campanha: any, key: any) => {
+                return (
+                  <CampaignCard
+                    key={key}
+                    title={campanha.nome_Campanha}
+                    status={campanha.status === true ? "in_progress" : "closed"}
+                    startDate={campanha.dataInicio}
+                    endDate={campanha.data_Termino}
+                    createdByUser={campanha.email_Criador}
+                    createdDate={campanha.dataCriacao}
+                    // onClickAction={() => alert("Cliquei")}
+                  />
+                );
+              })}
             </div>
           </div>
         </>
@@ -232,34 +150,34 @@ const Campaigns: React.FC = () => {
             <Card
               titulo="Número de Campanhas Ativas"
               icon={<Megaphone size={16} />}
-              valor="2.420"
+              valor={quantidadeCampanhasAtivas.data.quantidadeCampanhasAtivas}
               percentual="20"
               href={"#"}
             />
             <Card
               titulo="Retorno sobre o Investimento (ROI)"
-              icon={<HandCoins  size={16} />}
+              icon={<HandCoins size={16} />}
               valor="2.420"
               percentual="20"
               href={"#"}
             />
             <Card
               titulo="Taxa de Cliques (CRT)"
-              icon={<HandTap    size={16} />}
+              icon={<HandTap size={16} />}
               valor="2.420"
               percentual="20"
               href={"#"}
             />
             <Card
               titulo="Taxa de Conversão de Campanha"
-              icon={<ChartLine  size={16} />}
+              icon={<ChartLine size={16} />}
               valor="2.420"
               percentual="20"
               href={"#"}
             />
             <Card
               titulo="Taxa de engajamento nas Redes Sociais"
-              icon={<ThumbsUp  size={16} />}
+              icon={<ThumbsUp size={16} />}
               valor="2.420"
               percentual="20"
               href={"#"}

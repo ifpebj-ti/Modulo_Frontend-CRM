@@ -1,0 +1,10 @@
+{
+  "ignore": {
+    "paths": [],
+    "identifiers": [
+      "console.log",
+      "alert"
+    ],
+    "files": []
+  }
+}

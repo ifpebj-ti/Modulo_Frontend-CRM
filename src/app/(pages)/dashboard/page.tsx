@@ -3,6 +3,7 @@ import Card from "@/components/Card";
 import { DotChart } from "@/components/DotChart";
 import Dropdown from "@/components/Dropdown";
 import { LineChart } from "@/components/LineChart";
+import { getQuantidadeCampanhasAtivas } from "@/services/MarketingApi";
 import {
   getFaturamentoComparadoMesAnterior,
   getFrequenciaVendas,
@@ -43,6 +44,7 @@ export default function Dashboard() {
     qtdAssociados,
     topFiveVendas,
     frequenciaVendasChartData,
+    quantidadeCampanhasAtivas,
   ] = useQueries({
     queries: [
       {
@@ -65,6 +67,10 @@ export default function Dashboard() {
       {
         queryKey: ["frequenciaVendasChartData"],
         queryFn: () => getFrequenciaVendas(),
+      },
+      {
+        queryKey: ["quantidadeCampanhasAtivas"],
+        queryFn: () => getQuantidadeCampanhasAtivas(),
       },
     ],
   });
@@ -100,7 +106,7 @@ export default function Dashboard() {
         <Card
           titulo="Número de Campanhas Ativas"
           icon={<Megaphone size={16} />}
-          valor="2.420"
+          valor={quantidadeCampanhasAtivas.data.quantidadeCampanhasAtivas}
           percentual="20"
           href={"#"}
         />
