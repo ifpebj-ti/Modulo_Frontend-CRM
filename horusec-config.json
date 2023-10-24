@@ -3,8 +3,17 @@
     "paths": [],
     "identifiers": [
       "console.log",
-      "alert"
+      "alert",
+      "onClick",
     ],
     "files": []
-  }
+  },
+  "horusecCliRiskAcceptHashes": [
+    "c75e15a86e07296f27c35b1a2a0ea393bc80c64231e397a19cf2c3a6200a7b9e",
+    "e1adb73179da5402b3418d20cec30f4ccce6377b76fa4193c1eb437a2219b45f",
+    "388a9c54fd8b48e9c45d34fd323d431a33abcf971371f8afe438da04997a55b4",
+    "e36c71011369437c5d2239a3b5f4ed5560e7954324605c3d850c2062fe7ef915",
+    "28e40ad97d5ecf283fe9b02bf9da0934194a50e969b7efb722298cf27ac108c6",
+    "8af55db817d4561bc1e57ad70083c4a7b4212d389fdd153b4a38e077e334111f",
+  ]
 }
