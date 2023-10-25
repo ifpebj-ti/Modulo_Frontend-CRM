@@ -6,7 +6,6 @@ export const getFaturamentoComparadoMesAnterior = async () => {
     .get("Venda/ObterFaturamentoComparadoMesAnterior")
     .then((response) => {
       // handle the response
-      // console.log(response.data);
       return response.data;
     })
     .catch((error) => {
@@ -20,7 +19,6 @@ export const getQtdVendasComparadoMesAnterior = async () => {
     .get("Venda/ObterQtdVendasComparadoMesAnterior")
     .then((response) => {
       // handle the response
-      // console.log(response.data);
       return response.data;
     })
     .catch((error) => {
@@ -34,7 +32,6 @@ export const getFrequenciaVendas = async () => {
     .get("Venda/ObterFrequenciaVendas")
     .then((response) => {
       // handle the response
-      // console.log(response.data);
       return response.data;
     })
     .catch((error) => {
@@ -48,7 +45,6 @@ export const getQtdClientesComparadoMesAnterior = async () => {
     .get("Cliente/ObterQtdClientesComparadoMesAnterior")
     .then((response) => {
       // handle the response
-      // console.log(response.data);
       return response.data;
     })
     .catch((error) => {
@@ -62,7 +58,6 @@ export const getTopCincoVendas = async () => {
     .get("Venda/ObterTopCincoVendas")
     .then((response) => {
       // handle the response
-      // console.log(response.data);
       return response.data;
     })
     .catch((error) => {

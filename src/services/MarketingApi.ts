@@ -5,7 +5,6 @@ export const getCampanhas = async () => {
     .get("Campanha/GetCampanhas")
     .then((response) => {
       // handle the response
-      // console.log(response.data);
       return response.data;
     })
     .catch((error) => {
@@ -19,7 +18,6 @@ export const getQuantidadeCampanhasAtivas = async () => {
     .get("/Campanha/GetQuantidadeCampanhasAtivas")
     .then((response) => {
       // handle the response
-      // console.log(response.data);
       return response.data;
     })
     .catch((error) => {

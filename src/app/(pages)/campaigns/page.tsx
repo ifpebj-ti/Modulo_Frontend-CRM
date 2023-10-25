@@ -45,7 +45,6 @@ const Campaigns: React.FC = () => {
 
   if (todasCampanhas.isLoading || quantidadeCampanhasAtivas.isLoading) return <div>Carregando...</div>;
 
-  console.log(todasCampanhas.data);
 
   return (
     <div>
@@ -72,7 +71,6 @@ const Campaigns: React.FC = () => {
         <>
           <div className="flex justify-end">
             <Button
-              onClick={() => alert("Cliquei")}
               className="bg-[#106E41] mt-[24px] p-3 flex items-center justify-center gap-[8px] hover:opacity-50"
             >
               <Plus size={14} weight="bold" />
@@ -91,7 +89,6 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -100,7 +97,6 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -109,7 +105,6 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
               />
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
@@ -118,7 +113,6 @@ const Campaigns: React.FC = () => {
                 endDate="01 de Dezembro"
                 createdByUser="Matheus Patriota"
                 createdDate="23 de Setembro"
-                // onClickAction={() => alert("Cliquei")}
               />
             </div>
           </div>
@@ -137,7 +131,6 @@ const Campaigns: React.FC = () => {
                     endDate={campanha.data_Termino}
                     createdByUser={campanha.email_Criador}
                     createdDate={campanha.dataCriacao}
-                    // onClickAction={() => alert("Cliquei")}
                   />
                 );
               })}
