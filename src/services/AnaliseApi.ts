@@ -66,3 +66,16 @@ export const getTopCincoVendas = async () => {
     });
   return response;
 };
+export const getClientesPorGeneroIdade = async (tipo: string) => {
+  const response = await analiseApi
+    .get("Cliente/ObterClientesPorGeneroIdade",{ params: { tipo: tipo } })
+    .then((response) => {
+      // handle the response
+      return response.data;
+    })
+    .catch((error) => {
+      // handle the error
+      return error;
+    });
+  return response;
+};

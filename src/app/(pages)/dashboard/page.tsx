@@ -5,12 +5,13 @@ import Dropdown from "@/components/Dropdown";
 import { LineChart } from "@/components/LineChart";
 import { getQuantidadeCampanhasAtivas } from "@/services/MarketingApi";
 import {
+  getClientesPorGeneroIdade,
   getFaturamentoComparadoMesAnterior,
   getFrequenciaVendas,
   getQtdClientesComparadoMesAnterior,
   getQtdVendasComparadoMesAnterior,
   getTopCincoVendas,
-} from "@/services/UserApi";
+} from "@/services/AnaliseApi";
 import {
   ChartBar,
   CurrencyCircleDollar,
@@ -45,6 +46,7 @@ export default function Dashboard() {
     topFiveVendas,
     frequenciaVendasChartData,
     quantidadeCampanhasAtivas,
+    ObterClientesPorGeneroIdade,
   ] = useQueries({
     queries: [
       {
@@ -72,6 +74,10 @@ export default function Dashboard() {
         queryKey: ["quantidadeCampanhasAtivas"],
         queryFn: () => getQuantidadeCampanhasAtivas(),
       },
+      {
+        queryKey: ["ObterClientesPorGeneroIdade"],
+        queryFn: () => getClientesPorGeneroIdade("idade"),
+      },
     ],
   });
 
@@ -80,7 +86,8 @@ export default function Dashboard() {
     vendas.isLoading ||
     qtdAssociados.isLoading ||
     topFiveVendas.isLoading ||
-    frequenciaVendasChartData.isLoading
+    frequenciaVendasChartData.isLoading ||
+    ObterClientesPorGeneroIdade.isLoading
   )
     return <div>Loading...</div>;
 
@@ -89,7 +96,8 @@ export default function Dashboard() {
     vendas.isError ||
     qtdAssociados.isError ||
     topFiveVendas.isError ||
-    frequenciaVendasChartData.isError
+    frequenciaVendasChartData.isError ||
+    ObterClientesPorGeneroIdade.isError
   )
     return <div>Error:</div>;
 
@@ -150,7 +158,7 @@ export default function Dashboard() {
                         key={`${key} - item.${item.nomeClienteCompleto}`}
                         className={`${key % 2 === 0 ? "bg-gray-200" : ""} `}
                       >
-                        <td >
+                        <td>
                           {key === 0 && (
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -316,7 +324,7 @@ export default function Dashboard() {
         <div className="flex w-[512px] h-[100%] flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
           <div className="flex justify-between items-center w-full h-[10%]">
             <span className="text-[14px] font-bold">
-              Análise de tração de clientes durante o ano
+              Distribuição de Clientes por Idade ou Gênero
             </span>
             <Dropdown name={"Idade"} />
           </div>
@@ -324,7 +332,7 @@ export default function Dashboard() {
             <Chart
               chartType="PieChart"
               width="100%"
-              data={data}
+              data={ObterClientesPorGeneroIdade.data}
               options={options}
             />
           </div>
@@ -332,7 +340,7 @@ export default function Dashboard() {
         <div className="flex w-[512px] flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
           <div className="flex justify-between items-center w-full">
             <span className="text-[14px] font-bold">
-              Distribuição de Clientes por Idade ou Gênero
+              Análise de tração de clientes durante o ano
             </span>
           </div>
           <div className="flex w-full justify-center items-center h-[200px]">
