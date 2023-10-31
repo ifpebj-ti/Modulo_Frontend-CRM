@@ -79,3 +79,16 @@ export const getClientesPorGeneroIdade = async (tipo: string) => {
     });
   return response;
 };
+export const getQtdClientesAnual = async () => {
+  const response = await analiseApi
+    .get("Cliente/ObterQtdClientesAnual")
+    .then((response) => {
+      // handle the response
+      return response.data;
+    })
+    .catch((error) => {
+      // handle the error
+      return error;
+    });
+  return response;
+};

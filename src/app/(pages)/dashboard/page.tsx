@@ -8,6 +8,7 @@ import {
   getClientesPorGeneroIdade,
   getFaturamentoComparadoMesAnterior,
   getFrequenciaVendas,
+  getQtdClientesAnual,
   getQtdClientesComparadoMesAnterior,
   getQtdVendasComparadoMesAnterior,
   getTopCincoVendas,
@@ -47,6 +48,7 @@ export default function Dashboard() {
     frequenciaVendasChartData,
     quantidadeCampanhasAtivas,
     ObterClientesPorGeneroIdade,
+    ObterQtdClientesAnual,
   ] = useQueries({
     queries: [
       {
@@ -78,6 +80,10 @@ export default function Dashboard() {
         queryKey: ["ObterClientesPorGeneroIdade"],
         queryFn: () => getClientesPorGeneroIdade("idade"),
       },
+      {
+        queryKey: ["ObterQtdClientesAnual"],
+        queryFn: () => getQtdClientesAnual(),
+      },
     ],
   });
 
@@ -87,7 +93,8 @@ export default function Dashboard() {
     qtdAssociados.isLoading ||
     topFiveVendas.isLoading ||
     frequenciaVendasChartData.isLoading ||
-    ObterClientesPorGeneroIdade.isLoading
+    ObterClientesPorGeneroIdade.isLoading ||
+    ObterQtdClientesAnual.isLoading
   )
     return <div>Loading...</div>;
 
@@ -97,7 +104,8 @@ export default function Dashboard() {
     qtdAssociados.isError ||
     topFiveVendas.isError ||
     frequenciaVendasChartData.isError ||
-    ObterClientesPorGeneroIdade.isError
+    ObterClientesPorGeneroIdade.isError ||
+    ObterQtdClientesAnual.isError
   )
     return <div>Error:</div>;
 
@@ -344,7 +352,7 @@ export default function Dashboard() {
             </span>
           </div>
           <div className="flex w-full justify-center items-center h-[200px]">
-            <LineChart />
+            <LineChart  data={ObterQtdClientesAnual.data}/>
           </div>
         </div>
       </div>
