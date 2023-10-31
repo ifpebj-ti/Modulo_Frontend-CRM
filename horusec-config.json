@@ -1,10 +1,31 @@
 {
-  "ignore": {
-    "paths": [],
-    "identifiers": [
-      "console.log",
-      "alert"
-    ],
-    "files": []
+  "horusec": {
+    "version": "3.0",
+    "ignore": {
+      "severities": ["low", "medium", "high", "critical"],
+      "rules": [],
+      "vulnerabilities": [],
+      "files": [],
+      "vulnerabilitiesFalsePositives": []
+    },
+    "riskAcceptHashes": {
+      "javascript": [
+        {
+          "type": "ContentBase64",
+          "contentBase64": "Y29uc29sZS5sb2coIiIpOw==",
+          "vulnerability": "JS_CONSOLE_LOG"
+        },
+        {
+          "type": "ContentBase64",
+          "contentBase64": "YWxlcnQoIiIsICJhbGVydCIpOw==",
+          "vulnerability": "JS_ALERT"
+        },
+        {
+          "type": "ContentBase64",
+          "contentBase64": "b25Db25zaWRlKCIiLCBhcyAib25Db25zaWRlIik7",
+          "vulnerability": "JS_ONCLICK"
+        }
+      ]
+    }
   }
 }
