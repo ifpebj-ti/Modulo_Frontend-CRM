@@ -7,7 +7,6 @@ const options = {
   legend: { position: "bottom" },
 };
 export function LineChart(data: any) {
-  console.log("data", data)
   return (
     <Chart
       chartType="LineChart"
