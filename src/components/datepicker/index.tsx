@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Datepicker, { DateValueType } from "react-tailwindcss-datepicker";
 
-const Picker = () => {
+const Picker = (props: any) => {
     const [value, setValue] = useState<DateValueType>({
         startDate: new Date(),
         endDate: new Date(new Date().setMonth(11)),
@@ -10,6 +10,7 @@ const Picker = () => {
 
     const handleValueChange = (newValue: DateValueType) => {
         console.log("newValue:", newValue);
+        props.handleGetStartEndDate(newValue?.startDate, newValue?.endDate)
         setValue(newValue);
     };
 

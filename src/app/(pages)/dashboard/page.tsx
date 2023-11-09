@@ -51,7 +51,6 @@ export default function Dashboard() {
         queryKey: ["faturamento"],
         queryFn: () => getFaturamentoComparadoMesAnterior(),
       },
-
       {
         queryKey: ["vendas"],
         queryFn: () => getQtdVendasComparadoMesAnterior(),
