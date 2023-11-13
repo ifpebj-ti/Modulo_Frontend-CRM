@@ -1,10 +1,13 @@
 import React from "react";
 
-export default function Footer() {
-    return (
-        <footer className="h-[100%] flex items-center justify-center bg-fc-color-300 text-fc-color-80 text-sm">
-            Copyright © 2023 - Farmácias Cavalcante - Todos os direitos reservados.
-        </footer>
-
-    )
+function Footer() {
+  return (
+    <footer className="bg-[#e56725] p-4 fixed bottom-0 w-full">
+      <p className="text-white text-center py-2">
+        Copyright © 2023 - Farmácias Cavalcante - Todos os direitos reservados.
+      </p>
+    </footer>
+  );
 }
+
+export default Footer;
