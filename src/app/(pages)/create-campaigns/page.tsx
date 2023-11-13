@@ -6,26 +6,50 @@ import "./styles.css"
 import { FileInput } from "@/components/FileInput/fileInput";
 import { useForm, SubmitHandler, set } from "react-hook-form"
 import { create } from "domain";
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod";
+
+type createCampaignFormData = z.infer<typeof createCampaignSchema>
+
+const createCampaignSchema = z.object({
+    nome: z.string()
+        .nonempty({ message: "É necessário fornecer um nome à campanha" }),
+    canal: z.string()
+        .nonempty({ message: "Atribua um canal" }),
+    msgCliente: z.string()
+        .nonempty({ message: "A mensagem é obrigatória" }),
+    meta: z.string()
+        .nonempty({ message: "A meta é obrigatória" }),
+    descricao: z.string()
+        .nonempty({ message: "O campo descrição é obrigatório" }),
+})
 
 
 export default function CreateCampaigns() {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<createCampaignFormData>({
+        resolver: zodResolver(createCampaignSchema)
+    })
 
-    const [output, setOutput] = useState('')
-
-    const [startDate, setStartDate] = useState(new Date())
-    const [endDate, setEndDate] = useState(new Date(new Date().setMonth(11)))
-
-    const { register, handleSubmit } = useForm()
-
-    function newCampaign(data: any) {
-        const finaldata = { ...data, startDate, endDate }
-        console.log(finaldata)
-    }
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date(new Date().setMonth(11)));
 
     function handleGetStartEndDate(dataInicial: any, dataFinal: any) {
         setStartDate(dataInicial)
         setEndDate(dataFinal)
     }
+
+    function newCampaign(data: any) {
+        const finaldata = { ...data, startDate, endDate }
+        console.log('Os dados atribuido agora, foram:' + finaldata)
+        setOutput(JSON.stringify(finaldata))
+    }
+
+    const [output, setOutput] = useState('')
+
 
     return (
         <section className="w-full h-full flex flex-col items-center justify-center gap-y-5 "  >
@@ -41,7 +65,8 @@ export default function CreateCampaigns() {
                     <div className="w-full flex items-start justify-center flex-row gap-2.5 ">
                         <div className="w-1/2 flex flex-col gap-4">
                             <div className=" h-1/5 flex flex-col text-fc-color-70 gap-1">
-                                <label htmlFor="nome" className="flex items-start justify-center flex-col gap-1">
+
+                                <label htmlFor="nome" className="flex items-start justify-center flex-col gap-1 ">
                                     Nome da Campanha
                                     <input
                                         type="text"
@@ -49,6 +74,7 @@ export default function CreateCampaigns() {
                                         {...register("nome")}
                                         className="w-full h-[56px] bg-fc-color-90 rounded-2xl border border-solid border-fc-color-80 "
                                     />
+                                    {errors.nome && <span className="h-[10px] text-red-500 text-sm">{errors.nome.message}</span>}
                                 </label>
                             </div>
                             <div className=" h-1/5 flex flex-col text-fc-color-70 gap-1">
@@ -61,7 +87,7 @@ export default function CreateCampaigns() {
 
                                 <label htmlFor="foto" className="flex items-start justify-center flex-col gap-1 cursor-pointer ">
                                     Foto da Campanha
-                                    <div className="w-full h-[120px] ">
+                                    <div id="foto" className="w-full h-[120px] ">
                                         {/* <input id="foto" type="file" className="flex items-end justify-end border border-fc-color-100 file:hidden" /> */}
                                         <FileInput />
                                     </div>
@@ -71,33 +97,31 @@ export default function CreateCampaigns() {
                             <div className=" h-1/5 flex flex-col gap-1 text-fc-color-70 ">
                                 <label htmlFor="canal" className="flex items-start justify-center flex-col gap-1">
                                     Qual canal de transmissão desta campanha?
-                                    <div className="w-full h-[56px] bg-fc-color-90 rounded-2xl border border-hidden "  >
-                                        <select
-                                            id="canal"
-                                            {...register('canal')}
-                                            className="w-full h-[100%] text-fc-color-70 text-sm rounded-2xl  bg-fc-color-90 border-fc-color-80 focus:border-fc-color-100 cursor-pointer"
-                                        >
-                                            <option selected>Escolha um Canal</option>
-                                            <option value="1">Ex1</option>
-                                            <option value="2">Ex2</option>
-                                            <option value="3">Ex3</option>
-                                            <option value="4">Ex4</option>
-                                        </select>
-                                    </div>
+                                    <select
+                                        id="canal"
+                                        {...register('canal')}
+                                        className="w-full h-[56px] text-fc-color-70 text-sm rounded-2xl  bg-fc-color-90 border-fc-color-80 focus:border-fc-color-100 cursor-pointer"
+                                    >
+                                        <option selected>Escolha um Canal</option>
+                                        <option value="1">Ex1</option>
+                                        <option value="2">Ex2</option>
+                                        <option value="3">Ex3</option>
+                                        <option value="4">Ex4</option>
+                                    </select>
+                                    {errors.canal && <span className="h-[10px] text-red-500 text-sm">{errors.canal.message}</span>}
                                 </label>
                             </div>
 
                             <div className=" h-1/5 flex flex-col text-fc-color-70 gap-1">
                                 <label htmlFor="msgCliente" className="flex items-start justify-center flex-col gap-1">
                                     Mensagem da campanha que será enviada aos clientes
-                                    <div className="w-full h-[120px] bg-fc-color-90 rounded-2xl  focus:ring-fc-color-100">
-                                        <textarea
-                                            {...register('msnCliente')}
-                                            id="msgCliente"
-                                            className="resize-none w-full h-full border border-solid border-fc-color-80 rounded-2xl bg-fc-color-90 focus:ring-fc-color-100"
-                                        >
-                                        </textarea>
-                                    </div>
+                                    <textarea
+                                        {...register('msgCliente')}
+                                        id="msgCliente"
+                                        className="w-full h-[120px] resize-none w-full h-full border border-solid border-fc-color-80 rounded-2xl bg-fc-color-90 focus:ring-fc-color-100"
+                                    >
+                                    </textarea>
+                                    {errors.msgCliente && <span className="h-[10px] text-red-500 text-sm">{errors.msgCliente.message}</span>}
                                 </label>
                             </div>
                         </div>
@@ -114,15 +138,14 @@ export default function CreateCampaigns() {
                             <div className=" h-1/5 flex flex-col text-fc-color-70 gap-1">
                                 <label htmlFor="descricao" className="flex items-start justify-center flex-col gap-1">
                                     Descrição da campanha
-                                    <div className="w-full h-[120px] bg-fc-color-90 rounded-2xl  focus:ring-fc-color-100">
-                                        <textarea
-                                            {...register('descricao')}
-                                            id="descricao"
-                                            className="resize-none w-full h-full border border-solid border-fc-color-80 rounded-2xl bg-fc-color-90 focus:ring-fc-color-100"
-                                        >
+                                    <textarea
+                                        {...register('descricao')}
+                                        id="descricao"
+                                        className="resize-none w-full h-[120px] border border-solid border-fc-color-80 rounded-2xl bg-fc-color-90 focus:ring-fc-color-100"
+                                    >
 
-                                        </textarea>
-                                    </div>
+                                    </textarea>
+                                    {errors.descricao && <span className="h-[10px] text-red-500 text-sm">{errors.descricao.message}</span>}
                                 </label>
                             </div>
                             <div className=" h-1/5 flex flex-col text-fc-color-70 gap-1">
@@ -161,11 +184,14 @@ export default function CreateCampaigns() {
                         </div>
                     </div>
                 </form>
-
                 <pre>
                     {output}
                 </pre>
             </div>
         </section>
     );
+}
+
+function record(arg0: any) {
+    throw new Error("Function not implemented.");
 }
