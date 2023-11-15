@@ -1,4 +1,5 @@
 import SideBard from "@/components/SideBard";
+import "./styles.css"
 
 export default function PagesLayout({
   children, // will be a page or nested layout
@@ -24,7 +25,7 @@ export default function PagesLayout({
                 <input
                   type="text"
                   placeholder="Pesquise aqui..."
-                  className="bg-transparent active:border-none focus:border-none"
+                  className="bg-transparent active:border-none focus:border-none border-none outline-none focus:ring-0"
                 />
               </div>
             </div>
