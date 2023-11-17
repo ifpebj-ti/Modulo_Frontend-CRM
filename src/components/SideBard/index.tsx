@@ -14,7 +14,7 @@ const SideBard: React.FC = () => {
     {
       name: "Dashboard",
       href: "/dashboard",
-      icon: <House size={32} weight="fill" />,
+      icon: <House size={24} />,
       current: `/${segment}` === "/dashboard" ? true : false,
     },
     {
@@ -24,7 +24,7 @@ const SideBard: React.FC = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
-          height="25"
+          height="24"
           viewBox="0 0 24 25"
           fill="none"
         >
@@ -43,7 +43,7 @@ const SideBard: React.FC = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
-          height="25"
+          height="24"
           viewBox="0 0 24 25"
           fill="none"
         >
@@ -56,9 +56,10 @@ const SideBard: React.FC = () => {
       current: `/${segment}` === "/sales" ? true : false,
     },
   ];
+
   return (
-    <div className="w-[20%]">
-      <div className="h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] pl-[21px] pr-[19px]">
+    <div className="w-[20%] max-w-[168px]">
+      <div className="h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] pl-[20px] pr-[20px]">
         <Image src={Logo} alt={"Logo Cavalcante"} />
         <div>
           <div className="flex flex-col gap-[40px] ">
@@ -67,7 +68,7 @@ const SideBard: React.FC = () => {
                 <>
                   <Link
                     href={page.href}
-                    className={`flex gap-[12px]  cursor-pointer hover:opacity-80 items-center ${
+                    className={`flex gap-[12px] text-sm cursor-pointer hover:opacity-80 items-center ${
                       page.current ? "font-bold" : ""
                     }`}
                     key={page.name}
