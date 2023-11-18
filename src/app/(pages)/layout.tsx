@@ -1,4 +1,8 @@
+"use client"
+
 import SideBard from "@/components/SideBard";
+import { currentDateFormatted } from "@/utils/formatDate";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 
 export default function PagesLayout({
   children, // will be a page or nested layout
@@ -16,15 +20,16 @@ export default function PagesLayout({
                 Olá, <strong>Graça</strong>
               </span>
               <div className="leading-[22px] text-[#808080]">
-                Segunda-Feira, 11 de setembro de 2023
+                {currentDateFormatted}
               </div>
             </div>
             <div>
-              <div className="border-2 border-[#BBBDC9] rounded-[20px] p-2 pl-[15px]">
+              <div className="flex items-center justify-center gap-2 border-[1px] w-full border-[#BBBDC9] rounded-[20px] px-2 py-2">
+                <MagnifyingGlass size={18} weight="bold" color="#525466"/>
                 <input
                   type="text"
-                  placeholder="Pesquise aqui..."
-                  className="bg-transparent active:border-none focus:border-none"
+                  placeholder="Pesquise uma campanha"
+                  className="bg-transparent active:border-none focus:border-none placeholder:text-[#525466] placeholder:text-sm w-full"
                 />
               </div>
             </div>
