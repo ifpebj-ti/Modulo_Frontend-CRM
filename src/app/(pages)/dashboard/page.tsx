@@ -23,6 +23,7 @@ import { useQueries, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 
 import { Chart } from "react-google-charts";
+import Loading from "@/app/loading";
 
 const data = [
   ["Task", "Hours per Day"],
@@ -96,7 +97,7 @@ export default function Dashboard() {
     ObterClientesPorGeneroIdade.isLoading ||
     ObterQtdClientesAnual.isLoading
   )
-    return <div>Loading...</div>;
+    return <Loading />;
 
   if (
     faturamento.isError ||

@@ -13,8 +13,8 @@ export default function PagesLayout({
     <section>
       <div className="flex h-screen w-screen">
         <SideBard />
-        <div className="flex flex-col h-full w-[80%] pr-[112px] pl-[112px] pt-[40px] pb-[40px] justify-around">
-          <div className="flex gap-[104px] items-center h-[10%]">
+        <div className="flex flex-col h-full w-full pl-[4rem] pt-[40px] pb-[40px] justify-around flex-wrap">
+          <div className="flex w-full max-w-[710px] items-center justify-between h-[10%]">
             <div className="flex flex-col">
               <span className="text-[34px] leading-[44px]">
                 Olá, <strong>Graça</strong>
@@ -34,7 +34,7 @@ export default function PagesLayout({
               </div>
             </div>
           </div>
-          <main className="h-[85%]">{children}</main>
+          <main className="h-[85%] 3xl:max-w-[2260px] 2xl:max-w-[1240px] xll:max-w-[1148px] xl:max-w-[980px] lg:max-w-[730px]">{children}</main>
         </div>
       </div>
     </section>

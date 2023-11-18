@@ -23,6 +23,10 @@ const config: Config = {
           500: "#D9D9D9",
         },
       },
+      screens: {
+        '3xl': '2560px',
+        'xll': '1440px',
+      },
     },
   },
   plugins: [],

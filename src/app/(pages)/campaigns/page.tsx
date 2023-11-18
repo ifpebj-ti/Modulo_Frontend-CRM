@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import { useQueries } from "@tanstack/react-query";
 import { getCampanhas, getQuantidadeCampanhasAtivas } from "@/services/MarketingApi";
+import Loading from "@/app/loading";
 
 const Campaigns: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState("listagem_campanhas");
@@ -43,7 +44,7 @@ const Campaigns: React.FC = () => {
     ],
   });
 
-  if (todasCampanhas.isLoading || quantidadeCampanhasAtivas.isLoading) return <div>Carregando...</div>;
+  if (todasCampanhas.isLoading || quantidadeCampanhasAtivas.isLoading) return <Loading />;
 
 
   return (
