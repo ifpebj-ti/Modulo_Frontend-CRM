@@ -46,10 +46,7 @@ const mapData = (data) => {
   }));
 };
 function QuadrantChart({ data }) {
-  console.log("chart2", data);
   const filteredData = mapData(data);
-
-  console.log("chart", filteredData);
 
   const chart = anychart.quadrant();
   const dataSet = anychart.data.set(filteredData);
