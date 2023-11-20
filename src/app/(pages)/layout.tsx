@@ -1,5 +1,5 @@
 import SideBard from "@/components/SideBard";
-import "./styles.css"
+import "./styles.scss"
 
 export default function PagesLayout({
   children, // will be a page or nested layout
@@ -7,31 +7,39 @@ export default function PagesLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
-      <div className="flex h-screen w-screen">
+    <section className="container-layout">
+
+      <div className="sidebar-layout">
         <SideBard />
-        <div className="flex flex-col h-full w-[80%] pr-[112px] pl-[112px] pt-[40px] pb-[40px] justify-around">
-          <div className="flex gap-[104px] items-center h-[10%]">
-            <div className="flex flex-col">
-              <span className="text-[34px] leading-[44px]">
-                Olá, <strong>Graça</strong>
+      </div>
+
+      <div className="content-layout">
+
+        <div className="box-menu-layout ">
+          <div className="box-text-layout">
+            <span className="saudacao-layout">
+              Olá, <strong>Graça</strong>
+            </span>
+            <div className="data-layout">
+              <span>
+                Segunda-Feira,
               </span>
-              <div className="leading-[22px] text-[#808080]">
-                Segunda-Feira, 11 de setembro de 2023
-              </div>
-            </div>
-            <div>
-              <div className="border-2 border-[#BBBDC9] rounded-[20px] p-2 pl-[15px]">
-                <input
-                  type="text"
-                  placeholder="Pesquise aqui..."
-                  className="bg-transparent active:border-none focus:border-none border-none outline-none focus:ring-0"
-                />
-              </div>
+              <span>
+                11 de setembro de 2023
+              </span>
             </div>
           </div>
-          <main className="h-[85%]">{children}</main>
+          <div className="box-search-layout">
+            <div className="search-layout">
+              <input
+                type="text"
+                placeholder="Pesquise aqui..."
+                className="ipt-search-layout"
+              />
+            </div>
+          </div>
         </div>
+        <main className="main-layout ">{children}</main>
       </div>
     </section>
   );
