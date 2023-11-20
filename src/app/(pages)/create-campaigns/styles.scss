@@ -1,0 +1,716 @@
+textarea:focus {
+    @apply focus:border-fc-color-100 focus:ring-0;
+
+}
+
+textarea::-webkit-scrollbar {
+    @apply hidden;
+}
+
+input:focus {
+    @apply focus:ring-0 focus:border-fc-color-100;
+}
+
+input[type="file"] {
+    @apply text-[#3cff00] text-xl font-[bold] leading-loose mx-0 my-2.5 content-["Add"];
+}
+
+select:focus {
+    @apply focus:ring-0 focus:border-fc-color-100;
+
+}
+
+.msg-error {
+    @apply min-w-[10%] h-[5%] text-red-500 text-sm;
+}
+
+.container-CC {
+    @apply w-full h-full flex flex-col items-center justify-evenly gap-y-5;
+
+    .content-CC {
+        @apply w-[95%] h-full flex items-center justify-evenly flex-col bg-fc-color-700 rounded-2xl border border-solid pt-[30px] pb-[10px];
+
+        .title-CC {
+            @apply w-[85%] h-[8%] flex flex-col items-start justify-center gap-7 text-[1.5rem] leading-7 border-fc-color-80 border-b border-solid;
+        }
+
+        #campaignForm {
+            @apply w-[85%] h-[90%] flex items-start justify-center flex-col gap-2.5;
+
+            .field-form-CC {
+                @apply w-full h-[80%] flex flex-col items-start justify-start gap-2;
+
+                .line1-form-CC {
+                    @apply w-full h-[20%] flex justify-between;
+
+                    .box-name-CC {
+                        @apply w-[48%] h-full flex flex-col text-fc-color-70 gap-1;
+
+                        .l-name-CC {
+                            @apply w-full h-full flex-col flex items-start justify-evenly;
+
+                            .text-name-CC {
+                                @apply w-full h-[30%] flex flex-row items-end justify-start text-[0.9rem];
+                            }
+
+                            .ipt-name-CC {
+                                @apply w-full h-[60%] bg-fc-color-90 rounded-xl border border-solid border-fc-color-80 focus:border-fc-color-100 focus:ring-0;
+                            }
+                        }
+                    }
+
+                    .box-period-CC {
+                        @apply w-[48%] h-full flex flex-col text-fc-color-70 gap-1;
+
+                        .l-period-CC {
+                            @apply w-full h-full flex flex-col items-start justify-evenly;
+
+                            .text-period-CC {
+                                @apply w-full h-[30%] flex items-end text-[0.9rem];
+                            }
+
+                            .peaker-CC {
+                                @apply w-[60%] h-[60%] bg-fc-color-90 rounded-xl border border-hidden;
+
+                                .relative {
+                                    @apply h-full;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .line2-form-CC {
+                    @apply w-full h-[20%] flex justify-between;
+
+                    .box-img-CC {
+                        @apply w-[48%] h-full flex flex-col text-fc-color-70;
+
+                        .l-img-CC {
+                            @apply h-full flex items-start justify-evenly flex-col cursor-pointer;
+
+                            .text-img-CC {
+                                @apply flex items-end h-[15%] text-[0.9rem];
+                            }
+
+                            .ipt-img-CC {
+                                @apply w-full h-[80%];
+                            }
+                        }
+                    }
+
+                    .box-descript-CC {
+                        @apply w-[48%] h-full flex flex-col text-fc-color-70;
+
+                        .l-descript-CC {
+                            @apply h-full flex items-start justify-center flex-col gap-1;
+
+                            .text-descript-CC {
+                                @apply w-full h-[15%] flex items-end text-[0.9rem];
+                            }
+
+                            .txt-descript-CC {
+                                @apply resize-none w-full h-[80%] border border-solid border-fc-color-80 rounded-xl bg-fc-color-90 focus:border-fc-color-100 focus:ring-0;
+                            }
+                        }
+                    }
+                }
+
+                .line3-form-CC {
+                    @apply w-full h-[20%] flex justify-between;
+
+                    .box-channel-CC {
+                        @apply w-[48%] h-full flex flex-col text-fc-color-70;
+
+                        .l-channel-CC {
+                            @apply h-full flex items-start justify-evenly flex-col;
+
+                            .text-channel-CC {
+                                @apply w-full h-[30%] flex items-end text-[0.9rem];
+                            }
+
+                            .slct-channel-CC {
+                                @apply w-[70%] h-[60%] bg-fc-color-90 rounded-xl text-[0.8rem] py-0 border border-solid border-fc-color-80 focus:border-fc-color-100 focus:ring-0;
+                            }
+                        }
+                    }
+
+                    .box-meta-CC {
+                        @apply w-[48%] h-full flex flex-col text-fc-color-70 gap-1;
+
+                        .l-meta-CC {
+                            @apply h-full flex items-start justify-center flex-col gap-1;
+
+                            .text-meta-CC {
+                                @apply w-full h-[30%] flex items-end text-[0.9rem];
+                            }
+
+                            .ipt-meta-CC {
+                                @apply w-[50%] h-[60%] border border-solid border-fc-color-80 rounded-xl bg-fc-color-90 focus:ring-fc-color-100 pl-3;
+                            }
+                        }
+                    }
+                }
+
+                .line4-form-CC {
+                    @apply w-full h-[30%] flex justify-between;
+
+                    .box-msg-CC {
+                        @apply w-[48%] h-full flex flex-col text-fc-color-70 gap-1;
+
+                        .l-msg-CC {
+                            @apply h-full flex items-start justify-evenly flex-col;
+
+                            .text-msg-CC {
+                                @apply w-full h-[20%] flex items-end text-[0.9rem];
+                            }
+
+                            .txta-msg-CC {
+                                @apply w-full h-[75%] resize-none border border-solid border-fc-color-80 rounded-xl bg-fc-color-90 focus:border-fc-color-100 focus:ring-0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .box-btn-CC {
+                @apply w-full h-[15%] flex items-center justify-between flex-row gap-2.5;
+
+                .alert-btn-CC {
+                    @apply w-[20%] h-[80%] flex flex-row items-center justify-between;
+
+                    .alert-img-CC {
+                        @apply w-[15%];
+                    }
+
+                    .alert-text-CC {
+                        @apply w-[75%] text-sm not-italic font-normal leading-[18px] text-fc-color-70;
+                    }
+                }
+
+                .field-btn-CC {
+                    @apply w-[20%] h-[60%] flex items-center justify-center;
+
+                    .btn-CC {
+                        @apply w-full h-full bg-fc-color-100 p-1 box-border rounded-[10px] text-fc-color-700 text-[1rem] py-0 px-[15px];
+                    }
+                }
+            }
+        }
+    }
+}
+
+// /* Monitores 4k Styles (1440-2559px) */
+// @media (min-width: 2560px) {}
+
+// /* Monitores Styles (1440-2559px) */
+// @media (min-width: 1440px) and (max-width: 2559px) {}
+
+/* Notebooks Styles (1280-1439px) */
+@media (min-width: 1280px) and (max-width: 1439px) {
+    .container-CC {
+        .content-CC {
+            @apply py-0 pt-[15px];
+
+            .title-CC {
+                @apply h-[8%] text-[1.3rem];
+            }
+
+            #campaignForm {
+                @apply w-[85%] h-[90%] flex items-start justify-center flex-col gap-2.5;
+
+                .field-form-CC {
+                    .line1-form-CC {
+                        .box-name-CC {
+                            .l-name-CC {
+                                .text-name-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-name-CC {}
+                            }
+                        }
+
+                        .box-period-CC {
+                            .l-period-CC {
+                                .text-period-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .peaker-CC {
+                                    .relative {}
+                                }
+                            }
+                        }
+                    }
+
+                    .line2-form-CC {
+                        .box-img-CC {
+                            .l-img-CC {
+                                .text-img-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-img-CC {}
+                            }
+                        }
+
+                        .box-descript-CC {
+                            .l-descript-CC {
+                                .text-descript-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .txt-descript-CC {}
+                            }
+                        }
+                    }
+
+                    .line3-form-CC {
+                        .box-channel-CC {
+                            .l-channel-CC {
+                                .text-channel-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .slct-channel-CC {}
+                            }
+                        }
+
+                        .box-meta-CC {
+                            .l-meta-CC {
+                                .text-meta-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-meta-CC {}
+                            }
+                        }
+                    }
+
+                    .line4-form-CC {
+                        .box-msg-CC {
+                            .l-msg-CC {
+                                .text-msg-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .txta-msg-CC {}
+                            }
+                        }
+                    }
+                }
+
+                .box-btn-CC {
+
+                    .alert-btn-CC {
+                        @apply w-[30%];
+
+                        .alert-img-CC {}
+
+                        .alert-text-CC {}
+                    }
+
+                    .field-btn-CC {
+
+                        .btn-CC {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Tablet Styles (768px-1279px) */
+@media (min-width: 768px) and (max-width: 1279px) {
+    .container-CC {
+        .content-CC {
+            @apply w-full py-0 pt-[15px];
+
+            .title-CC {
+                @apply w-[90%] h-[8%] text-[1.3rem];
+            }
+
+            #campaignForm {
+                @apply w-[90%] h-[90%] flex items-start justify-center flex-col gap-2.5;
+
+                .field-form-CC {
+                    .line1-form-CC {
+                        .box-name-CC {
+                            .l-name-CC {
+                                .text-name-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-name-CC {}
+                            }
+                        }
+
+                        .box-period-CC {
+                            .l-period-CC {
+                                .text-period-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .peaker-CC {
+                                    @apply w-full;
+
+                                    .relative {}
+                                }
+                            }
+                        }
+                    }
+
+                    .line2-form-CC {
+                        .box-img-CC {
+                            .l-img-CC {
+                                .text-img-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-img-CC {}
+                            }
+                        }
+
+                        .box-descript-CC {
+                            .l-descript-CC {
+                                .text-descript-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .txt-descript-CC {}
+                            }
+                        }
+                    }
+
+                    .line3-form-CC {
+                        .box-channel-CC {
+                            .l-channel-CC {
+                                .text-channel-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .slct-channel-CC {
+                                    @apply w-full;
+                                }
+                            }
+                        }
+
+                        .box-meta-CC {
+                            .l-meta-CC {
+                                .text-meta-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-meta-CC {
+                                    @apply w-[80%];
+                                }
+                            }
+                        }
+                    }
+
+                    .line4-form-CC {
+                        .box-msg-CC {
+                            .l-msg-CC {
+                                .text-msg-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .txta-msg-CC {}
+                            }
+                        }
+                    }
+                }
+
+                .box-btn-CC {
+
+                    .alert-btn-CC {
+                        @apply w-[40%];
+
+                        .alert-img-CC {}
+
+                        .alert-text-CC {}
+                    }
+
+                    .field-btn-CC {
+                        @apply w-[35%];
+
+                        .btn-CC {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Phone Styles (640px-767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+    .container-CC {
+        .content-CC {
+            @apply w-full py-0 pt-[15px];
+
+            .title-CC {
+                @apply w-[90%] h-[8%] text-[1.3rem];
+            }
+
+            #campaignForm {
+                @apply w-[90%] h-[90%] flex items-start justify-center flex-col gap-2.5;
+
+                .field-form-CC {
+                    .line1-form-CC {
+                        .box-name-CC {
+                            .l-name-CC {
+                                .text-name-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-name-CC {}
+                            }
+                        }
+
+                        .box-period-CC {
+                            .l-period-CC {
+                                .text-period-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .peaker-CC {
+                                    @apply w-full;
+
+                                    .relative {}
+                                }
+                            }
+                        }
+                    }
+
+                    .line2-form-CC {
+                        .box-img-CC {
+                            .l-img-CC {
+                                .text-img-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-img-CC {}
+                            }
+                        }
+
+                        .box-descript-CC {
+                            .l-descript-CC {
+                                .text-descript-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .txt-descript-CC {}
+                            }
+                        }
+                    }
+
+                    .line3-form-CC {
+                        .box-channel-CC {
+                            .l-channel-CC {
+                                .text-channel-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .slct-channel-CC {
+                                    @apply w-full;
+                                }
+                            }
+                        }
+
+                        .box-meta-CC {
+                            .l-meta-CC {
+                                .text-meta-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .ipt-meta-CC {
+                                    @apply w-[80%];
+                                }
+                            }
+                        }
+                    }
+
+                    .line4-form-CC {
+                        .box-msg-CC {
+                            .l-msg-CC {
+                                .text-msg-CC {
+                                    @apply text-[0.8rem];
+                                }
+
+                                .txta-msg-CC {}
+                            }
+                        }
+                    }
+                }
+
+                .box-btn-CC {
+
+                    .alert-btn-CC {
+                        @apply w-[40%];
+
+                        .alert-img-CC {}
+
+                        .alert-text-CC {}
+                    }
+
+                    .field-btn-CC {
+                        @apply w-[35%];
+
+                        .btn-CC {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Small Phone Styles (0-639px) */
+@media (max-width: 639px) {
+    .container-CC {
+        .content-CC {
+            @apply w-full py-0 pt-[15px];
+
+            .title-CC {
+                @apply w-[90%] h-[8%] text-[1rem];
+            }
+
+            #campaignForm {
+                @apply w-[90%] h-[90%] flex flex-col items-start justify-center gap-2.5;
+
+                .field-form-CC {
+
+                    .line1-form-CC {
+                        @apply flex-col;
+
+                        .box-name-CC {
+                            @apply w-full;
+
+                            .l-name-CC {
+                                .text-name-CC {
+                                    @apply text-[0.7rem];
+                                }
+
+                                .ipt-name-CC {}
+                            }
+                        }
+
+                        .box-period-CC {
+                            @apply w-full;
+
+                            .l-period-CC {
+                                .text-period-CC {
+                                    @apply text-[0.7rem];
+                                }
+
+                                .peaker-CC {
+                                    @apply w-full;
+
+                                    .relative {}
+                                }
+                            }
+                        }
+                    }
+
+                    .line2-form-CC {
+                        @apply flex-col;
+
+                        .box-img-CC {
+                            @apply w-full;
+
+                            .l-img-CC {
+                                .text-img-CC {
+                                    @apply text-[0.7rem];
+                                }
+
+                                .ipt-img-CC {}
+                            }
+                        }
+
+                        .box-descript-CC {
+                            @apply w-full;
+
+                            .l-descript-CC {
+                                .text-descript-CC {
+                                    @apply text-[0.7rem];
+                                }
+
+                                .txt-descript-CC {}
+                            }
+                        }
+                    }
+
+                    .line3-form-CC {
+                        @apply flex-col;
+
+                        .box-channel-CC {
+                            @apply w-full;
+
+                            .l-channel-CC {
+                                .text-channel-CC {
+                                    @apply text-[0.7rem];
+                                }
+
+                                .slct-channel-CC {
+                                    @apply w-full;
+                                }
+                            }
+                        }
+
+                        .box-meta-CC {
+                            @apply w-full;
+
+                            .l-meta-CC {
+                                .text-meta-CC {
+                                    @apply text-[0.7rem];
+                                }
+
+                                .ipt-meta-CC {
+                                    @apply w-[80%];
+                                }
+                            }
+                        }
+                    }
+
+                    .line4-form-CC {
+                        @apply flex-col;
+
+                        .box-msg-CC {
+                            @apply w-full;
+
+                            .l-msg-CC {
+                                .text-msg-CC {
+                                    @apply text-[0.7rem];
+                                }
+
+                                .txta-msg-CC {}
+                            }
+                        }
+                    }
+                }
+
+                .box-btn-CC {
+                    @apply flex-col-reverse;
+
+                    .alert-btn-CC {
+                        @apply w-full h-[30%] justify-center;
+
+                        .alert-img-CC {
+                            @apply w-[10%];
+                        }
+
+                        .alert-text-CC {
+                            @apply text-center text-[0.5rem];
+                        }
+                    }
+
+                    .field-btn-CC {
+                        @apply w-full h-[60%];
+
+                        .btn-CC {}
+                    }
+                }
+            }
+        }
+    }
+}

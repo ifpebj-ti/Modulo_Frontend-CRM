@@ -6,7 +6,6 @@ import React from "react";
 import Logo from "../../../public/logo.svg";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-
 const SideBard: React.FC = () => {
   const segment = useSelectedLayoutSegment();
   const isActive = true;
@@ -57,7 +56,7 @@ const SideBard: React.FC = () => {
     },
   ];
   return (
-    <div className="w-[20%]">
+    <div className="w-full h-full">
       <div className="h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] pl-[21px] pr-[19px]">
         <Image src={Logo} alt={"Logo Cavalcante"} />
         <div>
@@ -67,9 +66,8 @@ const SideBard: React.FC = () => {
                 <>
                   <Link
                     href={page.href}
-                    className={`flex gap-[12px]  cursor-pointer hover:opacity-80 items-center ${
-                      page.current ? "font-bold" : ""
-                    }`}
+                    className={`flex gap-[12px]  cursor-pointer hover:opacity-80 items-center ${page.current ? "font-bold" : ""
+                      }`}
                     key={page.name}
                   >
                     {page.icon}
@@ -83,10 +81,9 @@ const SideBard: React.FC = () => {
         <div className="flex flex-col gap-[24px]">
           <div className="flex p-[6px] justify-center gap-[12px] items-center rounded-[20px] bg-[#F5F8FA] cursor-pointer">
             <div
-              className={`${
-                isActive &&
+              className={`${isActive &&
                 "flex pt-[6px] pb-[6px] pr-[12px] pl-[12px] rounded-[16px] bg-white"
-              }`}
+                }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
