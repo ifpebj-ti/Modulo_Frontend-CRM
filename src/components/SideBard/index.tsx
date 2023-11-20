@@ -6,7 +6,6 @@ import React from "react";
 import Logo from "../../../public/logo.svg";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-
 const SideBard: React.FC = () => {
   const segment = useSelectedLayoutSegment();
   const isActive = true;

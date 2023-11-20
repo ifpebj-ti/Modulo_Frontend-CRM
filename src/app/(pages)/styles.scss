@@ -9,7 +9,7 @@
         @apply w-[90%] h-full flex flex-col items-center justify-evenly p-[10px];
 
         .box-menu-layout {
-            @apply w-[80%] h-[20%] flex items-center gap-[104px];
+            @apply w-[80%] h-[20%] flex items-center gap-[25%];
 
             .box-text-layout {
                 @apply flex flex-col;
@@ -19,7 +19,7 @@
                 }
 
                 .data-layout {
-                    @apply leading-[22px] text-[#808080];
+                    @apply flex flex-col leading-[22px] text-[#808080];
                 }
             }
 
@@ -60,7 +60,7 @@
             }
 
             .main-layout {
-                @apply h-[75%];
+                @apply h-[80%];
             }
         }
     }
@@ -69,12 +69,20 @@
 /* Tablet Styles (768px-1279px) */
 @media (min-width: 768px) and (max-width: 1279px) {
     .container-layout {
-        .sidebar-layout {}
+        .sidebar-layout {
+            @apply w-[15%];
+        }
 
         .content-layout {
+            @apply w-[85%];
+
             .box-menu-layout {
+                @apply w-[95%] h-[10%];
+
                 .box-text-layout {
-                    .saudacao-layout {}
+                    .saudacao-layout {
+                        @apply text-[2rem];
+                    }
 
                     .data-layout {}
                 }
@@ -86,7 +94,9 @@
                 }
             }
 
-            .main-layout {}
+            .main-layout {
+                @apply w-[95%];
+            }
         }
     }
 }
@@ -122,20 +132,20 @@
         @apply flex h-screen w-screen;
 
         .sidebar-layout {
-            @apply w-[15%] h-full;
+            @apply w-[20%] h-full;
         }
 
         .content-layout {
-            @apply flex flex-col h-[full] w-[80%] justify-around p-4;
+            @apply w-[80%] h-[full] flex flex-col justify-between p-4;
 
             .box-menu-layout {
-                @apply flex flex-col items-center justify-evenly w-[100%] h-[20%] gap-1;
+                @apply w-[100%] h-[20%] flex flex-col items-center justify-start gap-0;
 
                 .box-text-layout {
                     @apply w-full h-[65%] flex flex-col items-center justify-between;
 
                     .saudacao-layout {
-                        @apply h-[45%] flex items-center justify-start text-xl leading-none;
+                        @apply h-[40%] flex items-center justify-start text-[1.3rem] leading-none;
 
                         .span-layout {
                             @apply text-2xl;
@@ -143,7 +153,7 @@
                     }
 
                     .data-layout {
-                        @apply h-[50%] flex items-center justify-start flex-col text-xs leading-5;
+                        @apply h-[60%] flex items-center justify-start flex-col text-xs leading-5;
 
                     }
                 }
@@ -159,6 +169,10 @@
                         }
                     }
                 }
+            }
+
+            .main-layout {
+                @apply w-full h-[80%];
             }
         }
     }
