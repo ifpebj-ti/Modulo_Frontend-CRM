@@ -24,6 +24,7 @@ import React, { useState } from "react";
 
 import { Chart } from "react-google-charts";
 import Loading from "@/app/loading";
+import { th } from "date-fns/locale";
 
 const data = [
   ["Task", "Hours per Day"],
@@ -112,7 +113,7 @@ export default function Dashboard() {
 
   return (
     <div className="bg-[#F5F8FA] flex flex-col gap-[32px] h-full w-full">
-      <div className="flex gap-6 justify-between  max-w-full max-h-[20%]">
+      <div className="flex gap-6 justify-between  max-w-full">
         <Card
           titulo="Número de Clientes Associados"
           icon={<Users size={16} />}
@@ -142,9 +143,9 @@ export default function Dashboard() {
           href={"#"}
         />
       </div>
-      <div className=" flex gap-[34px]  h-[35%]">
-        <div className="flex flex-col items-start gap-18 w-[480px] p-[16px] bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
-          <div className="flex gap-8 flex-col justify-between w-full items-center">
+      <div className=" flex gap-[32px]">
+        <div className="flex flex-col items-start gap-18 w-full max-w-[480px] 3xl:max-w-[547px] p-[16px] bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
+          <div className="flex gap-5 flex-col justify-between w-full items-center">
             <div className="flex justify-between items-center w-full">
               <span className="text-[14px] font-bold">
                 Clientes que mais compraram no mês
@@ -155,9 +156,9 @@ export default function Dashboard() {
               <table className="w-full">
                 <thead className="bg-white">
                   <tr>
-                    <th className="text-left">Medalha</th>
-                    <th className="text-left">Nome</th>
-                    <th className="text-left">Valor</th>
+                    <th className="text-left"></th>
+                    <th className="text-left"></th>
+                    <th className="text-left"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -165,9 +166,9 @@ export default function Dashboard() {
                     return (
                       <tr
                         key={`${key} - item.${item.nomeClienteCompleto}`}
-                        className={`${key % 2 === 0 ? "bg-gray-200" : ""} `}
+                        className={`${key % 2 === 0 ? "bg-gray-100" : ""}`}
                       >
-                        <td>
+                        <td className="p-[6px]">
                           {key === 0 && (
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -309,7 +310,7 @@ export default function Dashboard() {
                           {key >= 3 && key + 1}
                         </td>
                         <td>{item.nomeClienteCompleto}</td>
-                        <td>{item.valorVenda}</td>
+                        <td>R$ {item.valorVenda}</td>
                       </tr>
                     );
                   })}
@@ -318,7 +319,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="flex w-[512px] flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
+        <div className="flex w-full flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
           <div className="flex justify-between items-center w-full">
             <span className="text-[14px] font-bold">
               Análise de Clientes e Compras - Frequência de Compra x Valor gasto
@@ -329,24 +330,25 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="flex gap-[34px]  h-[35%]">
-        <div className="flex w-[512px] h-[100%] flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
-          <div className="flex justify-between items-center w-full h-[10%]">
+      <div className="flex gap-[34px]">
+        <div className="w-full max-w-[480px] 3xl:max-w-[547px] flex flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
+          <div className="flex justify-between items-center w-full">
             <span className="text-[14px] font-bold">
               Distribuição de Clientes por Idade ou Gênero
             </span>
             <Dropdown name={"Idade"} />
           </div>
-          <div className="flex w-full justify-center items-center h-[80%]">
+          <div className="flex w-full justify-center items-center">
             <Chart
               chartType="PieChart"
               width="100%"
+              height="100%"
               data={ObterClientesPorGeneroIdade.data}
               options={options}
             />
           </div>
         </div>
-        <div className="flex w-[512px] flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
+        <div className="flex w-full flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
           <div className="flex justify-between items-center w-full">
             <span className="text-[14px] font-bold">
               Análise de tração de clientes durante o ano

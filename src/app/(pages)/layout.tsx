@@ -13,7 +13,7 @@ export default function PagesLayout({
     <section>
       <div className="flex h-screen w-screen">
         <SideBard />
-        <div className="flex flex-col h-full w-full pl-[4rem] pt-[40px] pb-[40px] justify-around flex-wrap">
+        <div className="flex flex-col h-full w-full pl-[4rem] pb-[40px] justify-around flex-wrap">
           <div className="flex w-full max-w-[710px] items-center justify-between h-[10%]">
             <div className="flex flex-col">
               <span className="text-[34px] leading-[44px]">
