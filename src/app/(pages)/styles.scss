@@ -129,7 +129,7 @@
 /* Small Phone Styles (0-639px) */
 @media (max-width: 639px) {
     .container-layout {
-        @apply flex h-screen w-screen;
+        @apply flex h-[screen] w-screen;
 
         .sidebar-layout {
             @apply w-[20%] h-full;
