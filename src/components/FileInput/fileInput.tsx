@@ -49,7 +49,7 @@ const Input = ({ dropzone }: InputProps) => {
                                 <span className="font-bold"> + Adicionar uma foto </span>
                                 <span className="max-lg:hidden ">ou arraste até aqui</span>
                             </p>
-                            <p className="text-[10px]">
+                            <p className="text-[10px] max-lg:hidden">
                                 .png, .jpg, .jpeg, .svg
                             </p>
                         </div>

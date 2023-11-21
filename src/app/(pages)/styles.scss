@@ -9,7 +9,7 @@
         @apply w-[90%] h-full flex flex-col items-center justify-evenly p-[10px];
 
         .box-menu-layout {
-            @apply w-[80%] h-[20%] flex items-center gap-[25%];
+            @apply w-[80%] h-[10%] flex items-center gap-[25%];
 
             .box-text-layout {
                 @apply flex flex-col;
@@ -33,7 +33,7 @@
         }
 
         .main-layout {
-            @apply w-[80%] h-[75%];
+            @apply w-[80%] h-[80%];
         }
     }
 }
@@ -132,11 +132,11 @@
         @apply flex h-[screen] w-screen;
 
         .sidebar-layout {
-            @apply w-[20%] h-full;
+            @apply w-[15%] h-full bg-fc-color-300;
         }
 
         .content-layout {
-            @apply w-[80%] h-[full] flex flex-col justify-between p-4;
+            @apply w-[85%] h-[full] flex flex-col justify-between p-4;
 
             .box-menu-layout {
                 @apply w-[100%] h-[20%] flex flex-col items-center justify-start gap-0;
