@@ -26,3 +26,16 @@ export const getQuantidadeCampanhasAtivas = async () => {
     });
   return response;
 };
+export const postCreateCampanha = async () => {
+  const response = await marketingApi
+    .post("/Campanha/CadastrarCampanha")
+    .then((response) => {
+      // handle the response
+      return response.data;
+    })
+    .catch((error) => {
+      // handle the error
+      return error;
+    });
+  return response;
+};

@@ -4,6 +4,8 @@ import Dropdown from "@/components/Dropdown";
 import { Users } from "@phosphor-icons/react";
 import React, { useState } from "react";
 import Peaker from "@/components/datepicker";
+import { getTotalSales } from "../../../services/SalesApi";
+import { useQueries } from "@tanstack/react-query";
 
 function Sales() {
   const [startDate, setStartDate] = useState(new Date());
@@ -13,6 +15,41 @@ function Sales() {
     { nomeClienteCompleto: "teste2", valorVenda: 30 },
     { nomeClienteCompleto: "teste3", valorVenda: 40 },
   ];
+
+  const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
+  const [getTotalSalesData] = useQueries({
+    queries: [
+      {
+        queryKey: ["getTotalSales"],
+        queryFn: () =>
+          getTotalSales(formatDate(startDate), formatDate(endDate), 4),
+      },
+      // {
+      //   queryKey: ["vendas"],
+      //   queryFn: () => getQtdVendasComparadoMesAnterior(),
+      // },
+      // {
+      //   queryKey: ["qtdAssociados"],
+      //   queryFn: () => getQtdClientesComparadoMesAnterior(),
+      // },
+    ],
+  });
+
+  console.log(getTotalSalesData);
+
+  if (getTotalSalesData.isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (getTotalSalesData.error) {
+    return <div>Error...</div>;
+  }
 
   function handleGetStartEndDate(dataInicial: any, dataFinal: any) {
     setStartDate(dataInicial);
@@ -40,21 +77,21 @@ function Sales() {
 
         <div className="flex gap-4">
           <Card
-            titulo="Número de Clientes Associados"
+            titulo="Número de Vendas do Mês"
             icon={<Users size={16} />}
             valor={20}
             percentual={"20"}
             href={"#"}
           />
           <Card
-            titulo="Número de Clientes Associados"
+            titulo="Faturamento do Mês"
             icon={<Users size={16} />}
             valor={20}
             percentual={"20"}
             href={"#"}
           />
           <Card
-            titulo="Número de Clientes Associados"
+            titulo="Ticket Médio"
             icon={<Users size={16} />}
             valor={20}
             percentual={"20"}
