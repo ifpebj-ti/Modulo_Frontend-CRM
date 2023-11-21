@@ -9,6 +9,8 @@ import { create } from "domain";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { postCreateCampanha } from "@/services/MarketingApi";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 type createCampaignFormData = z.infer<typeof createCampaignSchema>;
 
@@ -31,6 +33,7 @@ export default function CreateCampaigns() {
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date(new Date().setMonth(11)));
+  const router = useRouter();
 
   function handleGetStartEndDate(dataInicial: any, dataFinal: any) {
     setStartDate(dataInicial);
@@ -38,9 +41,8 @@ export default function CreateCampaigns() {
   }
 
   function newCampaign(data: any) {
-
     const finaldata = { ...data, startDate, endDate };
-    
+
     const dataToEndpoint = {
       nome_Campanha: finaldata.nome,
       nome_Criador: "Administrador",
@@ -58,11 +60,17 @@ export default function CreateCampaigns() {
       dia_Do_Mes_Da_Recorrencia: 0,
       frequencia_de_Repeticao: 0,
     };
-    
+
     postCreateCampanha(dataToEndpoint).then((response) => {
       console.log(response);
+      Swal.fire({
+        icon: "success",
+        title: "Campanha cadastrada com sucesso!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      router.push("/campaigns");
     });
-
   }
 
   return (
