@@ -8,6 +8,7 @@ import { useForm, SubmitHandler, set } from "react-hook-form";
 import { create } from "domain";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { postCreateCampanha } from "@/services/MarketingApi";
 
 type createCampaignFormData = z.infer<typeof createCampaignSchema>;
 
@@ -37,19 +38,37 @@ export default function CreateCampaigns() {
   }
 
   function newCampaign(data: any) {
-    const finaldata = { ...data, startDate, endDate };
-    console.log("Os dados atribuido agora, foram:" + finaldata);
-    setOutput(JSON.stringify(finaldata));
-  }
 
-  const [output, setOutput] = useState("");
+    const finaldata = { ...data, startDate, endDate };
+    
+    const dataToEndpoint = {
+      nome_Campanha: finaldata.nome,
+      nome_Criador: "Administrador",
+      email_Criador: "adm@adm.com",
+      descricao: finaldata.descricao,
+      data_Inicio: finaldata.startDate,
+      data_Termino: finaldata.endDate,
+      data_Criacao: new Date(),
+      mensagem: finaldata.msgCliente,
+      observacao: "string",
+      valor_Meta: finaldata.meta,
+      recorrente: true,
+      frequencia: 0,
+      dia_Da_Semana_Da_Recorrencia: 0,
+      dia_Do_Mes_Da_Recorrencia: 0,
+      frequencia_de_Repeticao: 0,
+    };
+    
+    postCreateCampanha(dataToEndpoint).then((response) => {
+      console.log(response);
+    });
+
+  }
 
   return (
     <section className="container-CC ">
       <div className="content-CC">
-        <div className="title-CC">
-          Dados da Campanha
-        </div>
+        <div className="title-CC">Dados da Campanha</div>
         <form
           id="campaignForm"
           onSubmit={handleSubmit(newCampaign)}
@@ -58,24 +77,23 @@ export default function CreateCampaigns() {
           <div className="field-form-CC ">
             <div className="line1-form-CC">
               <div className="box-name-CC ">
-                <label htmlFor="nome" className="l-name-CC" >
+                <label htmlFor="nome" className="l-name-CC">
                   <div className="text-name-CC">
                     Nome da Campanha
                     {errors.nome && (
-                      <span className="msg-error">
-                        {errors.nome.message}
-                      </span>
+                      <span className="msg-error">{errors.nome.message}</span>
                     )}
                   </div>
-                  <input type="text" {...register("nome")} className="ipt-name-CC " />
-
+                  <input
+                    type="text"
+                    {...register("nome")}
+                    className="ipt-name-CC "
+                  />
                 </label>
               </div>
               <div className="box-period-CC ">
                 <label className="l-period-CC ">
-                  <div className="text-period-CC">
-                    Período da campanha
-                  </div>
+                  <div className="text-period-CC">Período da campanha</div>
                   <div className="peaker-CC">
                     <Peaker handleGetStartEndDate={handleGetStartEndDate} />
                   </div>
@@ -86,9 +104,7 @@ export default function CreateCampaigns() {
             <div className="line2-form-CC">
               <div className="box-img-CC ">
                 <label htmlFor="foto" className="l-img-CC ">
-                  <div className="text-img-CC">
-                    Foto da Campanha
-                  </div>
+                  <div className="text-img-CC">Foto da Campanha</div>
                   <div id="foto" className="ipt-img-CC">
                     <FileInput />
                   </div>
@@ -99,13 +115,18 @@ export default function CreateCampaigns() {
                   <div className="text-descript-CC">
                     Descrição da campanha
                     {errors.descricao && (
-                      <span className="msg-error"> {errors.descricao.message}</span>
+                      <span className="msg-error">
+                        {" "}
+                        {errors.descricao.message}
+                      </span>
                     )}
                   </div>
 
                   <textarea
-                    {...register("descricao")} id="descricao" className="txt-descript-CC">
-                  </textarea>
+                    {...register("descricao")}
+                    id="descricao"
+                    className="txt-descript-CC"
+                  ></textarea>
                 </label>
               </div>
             </div>
@@ -116,12 +137,14 @@ export default function CreateCampaigns() {
                   <div className="text-channel-CC">
                     Qual canal de transmissão desta campanha?
                     {errors.canal && (
-                      <span className="msg-error">
-                        {errors.canal.message}
-                      </span>
+                      <span className="msg-error">{errors.canal.message}</span>
                     )}
                   </div>
-                  <select id="canal" {...register("canal")} className="slct-channel-CC ">
+                  <select
+                    id="canal"
+                    {...register("canal")}
+                    className="slct-channel-CC "
+                  >
                     <option selected>Escolha um Canal</option>
                     <option value="1">Ex1</option>
                     <option value="2">Ex2</option>
@@ -132,14 +155,15 @@ export default function CreateCampaigns() {
               </div>
               <div className="box-meta-CC ">
                 <label htmlFor="meta" className="l-meta-CC ">
-                  <div className="text-meta-CC">
-                    Qual a meta da campanha?
-                  </div>
+                  <div className="text-meta-CC">Qual a meta da campanha?</div>
 
-
-                  <input type="number" {...register("meta")} id="meta" placeholder="R$ " className="ipt-meta-CC ">
-
-                  </input>
+                  <input
+                    type="number"
+                    {...register("meta")}
+                    id="meta"
+                    placeholder="R$ "
+                    className="ipt-meta-CC "
+                  ></input>
                 </label>
               </div>
             </div>
@@ -154,49 +178,35 @@ export default function CreateCampaigns() {
                       </span>
                     )}
                   </div>
-                  <textarea {...register("msgCliente")} id="msgCliente" className="txta-msg-CC " >
-                  </textarea>
+                  <textarea
+                    {...register("msgCliente")}
+                    id="msgCliente"
+                    className="txta-msg-CC "
+                  ></textarea>
                 </label>
               </div>
             </div>
-
-            {/* 
-            <div className="form-left-col-CC ">
-              
-              
-
-              
-
-
-            </div>
-
-            <div className="form-r-col-CC ">
-              
-
-              
-
-              
-            </div> */}
           </div>
 
           <div className="box-btn-CC ">
             <div className="alert-btn-CC ">
-              <img className="alert-img-CC " src="/Alerta.svg" alt="Icone Alerta" />
+              <img
+                className="alert-img-CC "
+                src="/Alerta.svg"
+                alt="Icone Alerta"
+              />
               <p className="alert-text-CC ">
                 Preencha todos os dados com cuidado.
               </p>
             </div>
             <div className="field-btn-CC ">
-              <button
-                type="submit"
-                className="btn-CC "
-              >
+              <button type="submit" className="btn-CC ">
                 Concluir criação
               </button>
             </div>
           </div>
         </form>
-        <pre>{output}</pre>
+        {/* <pre>{output}</pre> */}
       </div>
     </section>
   );

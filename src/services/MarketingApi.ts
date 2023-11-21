@@ -26,9 +26,9 @@ export const getQuantidadeCampanhasAtivas = async () => {
     });
   return response;
 };
-export const postCreateCampanha = async () => {
+export const postCreateCampanha = async (campaignBody: any) => {
   const response = await marketingApi
-    .post("/Campanha/CadastrarCampanha")
+    .post("/Campanha/CadastrarCampanha", campaignBody)
     .then((response) => {
       // handle the response
       return response.data;
