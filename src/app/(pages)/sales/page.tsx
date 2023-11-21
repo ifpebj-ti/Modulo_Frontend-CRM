@@ -51,29 +51,29 @@ function Sales() {
     return <div>Error...</div>;
   }
 
-  function handleGetStartEndDate(dataInicial: any, dataFinal: any) {
-    setStartDate(dataInicial);
-    setEndDate(dataFinal);
-  }
-  return (
-    <div className="bg-[#F5F8FA] flex flex-col gap-[32px] h-full w-full">
-      <div className="flex flex-col gap-6 justify-between  max-w-full max-h-[20%]">
-        <div className="flex gap-12 ">
-          <div className=" flex flex-col gap-2  w-[20%]">
-            <span className=" text-sm not-italic font-normal leading-[18px]">
-              Filial
-            </span>
-            <Dropdown name={"Selecione Filial..."} />
-          </div>
-          <div className="flex flex-col gap-2 w-[30%]">
-            <span className=" text-sm not-italic font-normal leading-[18px]">
-              Período
-            </span>
-            <div className="w-full h-[56px] bg-fc-color-90 rounded-2xl border border-hidden">
-              <Peaker handleGetStartEndDate={handleGetStartEndDate} />
-            </div>
-          </div>
-        </div>
+    function handleGetStartEndDate(dataInicial: any, dataFinal: any) {
+        setStartDate(dataInicial);
+        setEndDate(dataFinal);
+    }
+    return (
+        <div className="bg-[#F5F8FA] flex flex-col gap-[32px] h-full w-full">
+            <div className="flex flex-col gap-6 justify-between  max-w-full max-h-[20%]">
+                <div className="flex gap-12 ">
+                    <div className=" flex flex-col gap-2  w-[20%]">
+                        <span className=" text-sm not-italic font-normal leading-[18px]">
+                            Filial
+                        </span>
+                        <Dropdown name={"Selecione Filial..."} />
+                    </div>
+                    <div className="flex flex-col gap-2 w-[30%]">
+                        <span className=" text-sm not-italic font-normal leading-[18px]">
+                            Período
+                        </span>
+                        <div className="w-full h-[56px] bg-fc-color-90 rounded-2xl border border-hidden">
+                            <Peaker handleGetStartEndDate={handleGetStartEndDate} />
+                        </div>
+                    </div>
+                </div>
 
         <div className="flex gap-4">
           <Card
