@@ -569,7 +569,7 @@ select:focus {
 @media (max-width: 639px) {
     .container-CC {
         .content-CC {
-            @apply w-full py-0 pt-[15px];
+            @apply w-full p-0;
 
             .title-CC {
                 @apply w-[90%] h-[8%] text-[1rem];
@@ -579,32 +579,35 @@ select:focus {
                 @apply w-[90%] h-[90%] flex flex-col items-start justify-center gap-2.5;
 
                 .field-form-CC {
+                    @apply gap-1.5 justify-start;
 
                     .line1-form-CC {
-                        @apply flex-col;
+                        @apply h-[25%] flex-col gap-1.5;
 
                         .box-name-CC {
-                            @apply w-full;
+                            @apply w-full h-[50%];
 
                             .l-name-CC {
                                 .text-name-CC {
-                                    @apply text-[0.7rem];
+                                    @apply h-[20%] text-[0.6rem];
                                 }
 
-                                .ipt-name-CC {}
+                                .ipt-name-CC {
+                                    @apply h-[80%] rounded-[5px] text-[0.5rem] py-0;
+                                }
                             }
                         }
 
                         .box-period-CC {
-                            @apply w-full;
+                            @apply w-[70%] h-[50%];
 
                             .l-period-CC {
                                 .text-period-CC {
-                                    @apply text-[0.7rem];
+                                    @apply h-[20%] text-[0.6rem];
                                 }
 
                                 .peaker-CC {
-                                    @apply w-full;
+                                    @apply h-[80%] w-full rounded-[10px] text-[0.5rem] py-0;
 
                                     .relative {}
                                 }
@@ -613,17 +616,19 @@ select:focus {
                     }
 
                     .line2-form-CC {
-                        @apply flex-col;
+                        @apply h-[25%] gap-2;
 
                         .box-img-CC {
                             @apply w-full;
 
                             .l-img-CC {
                                 .text-img-CC {
-                                    @apply text-[0.7rem];
+                                    @apply h-[20%] text-[0.6rem];
                                 }
 
-                                .ipt-img-CC {}
+                                .ipt-img-CC {
+                                    @apply h-[80%] rounded-[8px] text-[0.5rem] py-0;
+                                }
                             }
                         }
 
@@ -631,59 +636,71 @@ select:focus {
                             @apply w-full;
 
                             .l-descript-CC {
+                                @apply gap-0;
+
                                 .text-descript-CC {
-                                    @apply text-[0.7rem];
+                                    @apply h-[20%] text-[0.6rem];
                                 }
 
-                                .txt-descript-CC {}
+                                .txt-descript-CC {
+                                    @apply h-[80%] rounded-[8px] text-[0.5rem] py-0;
+                                }
                             }
                         }
                     }
 
                     .line3-form-CC {
-                        @apply flex-col;
+                        @apply h-[25%] flex-col gap-1.5;
 
                         .box-channel-CC {
-                            @apply w-full;
+                            @apply w-full h-[50%];
 
                             .l-channel-CC {
+                                @apply gap-0 m-0 p-0;
+
                                 .text-channel-CC {
-                                    @apply text-[0.7rem];
+                                    @apply h-[20%] text-[0.6rem] flex;
                                 }
 
                                 .slct-channel-CC {
-                                    @apply w-full;
+                                    @apply w-[70%] h-[80%] rounded-[8px] text-[0.5rem] py-0;
                                 }
                             }
                         }
 
                         .box-meta-CC {
-                            @apply w-full;
+                            @apply w-full h-[50%];
 
                             .l-meta-CC {
+                                @apply justify-end gap-0;
+
                                 .text-meta-CC {
-                                    @apply text-[0.7rem];
+                                    @apply h-[20%] text-[0.6rem];
                                 }
 
                                 .ipt-meta-CC {
-                                    @apply w-[80%];
+                                    @apply w-[70%] h-[80%] rounded-[8px] text-[0.5rem] py-0;
                                 }
                             }
                         }
                     }
 
                     .line4-form-CC {
-                        @apply flex-col;
+                        @apply h-[25%] flex-col;
 
                         .box-msg-CC {
-                            @apply w-full;
+                            @apply w-full h-full;
 
                             .l-msg-CC {
+                                @apply justify-start;
+
                                 .text-msg-CC {
-                                    @apply text-[0.7rem];
+                                    @apply text-[0.58rem];
                                 }
 
-                                .txta-msg-CC {}
+                                .txta-msg-CC {
+                                    @apply rounded-[8px] text-[0.5rem] py-0;
+                                }
                             }
                         }
                     }
@@ -696,18 +713,20 @@ select:focus {
                         @apply w-full h-[30%] justify-center;
 
                         .alert-img-CC {
-                            @apply w-[10%];
+                            @apply w-[8%];
                         }
 
                         .alert-text-CC {
-                            @apply text-center text-[0.5rem];
+                            @apply text-center text-[0.6rem];
                         }
                     }
 
                     .field-btn-CC {
                         @apply w-full h-[60%];
 
-                        .btn-CC {}
+                        .btn-CC {
+                            @apply rounded-[8px];
+                        }
                     }
                 }
             }

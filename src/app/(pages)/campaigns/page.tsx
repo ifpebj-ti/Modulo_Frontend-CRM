@@ -11,7 +11,7 @@ import {
   ThumbsUp,
 } from "@phosphor-icons/react";
 import React, { useState } from "react";
-import "./styles.css";
+import "./styles.scss";
 import { useQueries } from "@tanstack/react-query";
 import { getCampanhas, getQuantidadeCampanhasAtivas } from "@/services/MarketingApi";
 import { useRouter } from "next/navigation";
@@ -56,11 +56,10 @@ const Campaigns: React.FC = () => {
           return (
             <>
               <div
-                className={` border-b-2 border-gray-400 p-3 w-[50%] text-center cursor-pointer opacity-60  ${
-                  tab.isActive
+                className={` border-b-2 border-gray-400 p-3 w-[50%] text-center cursor-pointer opacity-60  ${tab.isActive
                     ? "bg-[#6AD97233] !opacity-100 font-bold text-black"
                     : ""
-                } `}
+                  } `}
                 onClick={() => setSelectedTab(tab.key)}
               >
                 {tab.name}
@@ -74,7 +73,7 @@ const Campaigns: React.FC = () => {
           <div className="flex justify-end">
             <Button
               className="bg-[#106E41] mt-[24px] p-3 flex items-center justify-center gap-[8px] hover:opacity-50"
-              onClick={()=> router.push('/create-campaigns')}
+              onClick={() => router.push('/create-campaigns')}
             >
               <Plus size={14} weight="bold" />
               Adicionar uma campanha
