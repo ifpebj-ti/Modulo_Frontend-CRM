@@ -57,7 +57,7 @@ const SideBard: React.FC = () => {
   ];
   return (
     <div className="w-full h-full">
-      <div className="h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] pl-[21px] pr-[19px]">
+      <div className="h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] pl-[21px] pr-[19px] max-md:px-[10px]">
         <Image src={Logo} alt={"Logo Cavalcante"} />
         <div>
           <div className="flex flex-col gap-[40px] ">

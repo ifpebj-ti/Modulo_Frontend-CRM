@@ -9,7 +9,7 @@
         @apply w-[90%] h-full flex flex-col items-center justify-evenly p-[10px];
 
         .box-menu-layout {
-            @apply w-[80%] h-[20%] flex items-center gap-[25%];
+            @apply w-[80%] h-[10%] flex items-center gap-[25%];
 
             .box-text-layout {
                 @apply flex flex-col;
@@ -67,7 +67,7 @@
 }
 
 /* Tablet Styles (768px-1279px) */
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (min-width: 767px) and (max-width: 1279px) {
     .container-layout {
         .sidebar-layout {
             @apply w-[15%];
@@ -77,17 +77,21 @@
             @apply w-[85%];
 
             .box-menu-layout {
-                @apply w-[95%] h-[10%];
+                @apply w-[95%] h-[10%] gap-0 justify-between items-center;
 
                 .box-text-layout {
+                    @apply w-[45%] h-[100%];
+
                     .saudacao-layout {
-                        @apply text-[2rem];
+                        @apply w-full text-[2rem];
                     }
 
                     .data-layout {}
                 }
 
                 .box-search-layout {
+                    @apply w-[45%] h-[100%] flex items-center justify-end;
+
                     .search-layout {
                         .ipt-search-layout {}
                     }
@@ -102,7 +106,7 @@
 }
 
 /* Phone Styles (640px-767px) */
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 640px) and (max-width: 766px) {
     .container-layout {
         .sidebar-layout {}
 
@@ -129,14 +133,14 @@
 /* Small Phone Styles (0-639px) */
 @media (max-width: 639px) {
     .container-layout {
-        @apply flex h-screen w-screen;
+        @apply flex h-[screen] w-screen;
 
         .sidebar-layout {
-            @apply w-[20%] h-full;
+            @apply w-[15%] h-full bg-fc-color-300;
         }
 
         .content-layout {
-            @apply w-[80%] h-[full] flex flex-col justify-between p-4;
+            @apply w-[85%] h-[full] flex flex-col justify-between p-4;
 
             .box-menu-layout {
                 @apply w-[100%] h-[20%] flex flex-col items-center justify-start gap-0;

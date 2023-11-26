@@ -1,7 +1,7 @@
 import React from "react";
 import AnyChart from "anychart-react";
 import anychart from "anychart";
-import './styles.css';
+import './styles.scss';
 
 const quarters = {
   rightTop: {

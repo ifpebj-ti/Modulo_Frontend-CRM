@@ -21,7 +21,7 @@ import {
 } from "@phosphor-icons/react";
 import { useQueries, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import './styles.css'
+import './styles.scss'
 import { Chart } from "react-google-charts";
 import QuadrantChart from "../../../components/QuadrantChart";
 

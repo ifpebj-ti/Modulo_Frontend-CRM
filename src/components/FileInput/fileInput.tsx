@@ -40,16 +40,16 @@ const Input = ({ dropzone }: InputProps) => {
         <div {...getRootProps()} className={`w-[full] h-full rounded-[16px] border-dashed border-2 bg-fc-color-90 hover:border-fc-color-100 transition-all
         ${isDragActive ? 'border-fc-color-100' : 'border-fc-color-80'}`}>
             <label htmlFor="dropzone-file" className="w-full h-full cursor-pointer">
-                <div className="flex flex-col items-center justify-center pt-5 pb-6 w-full h-full text-fc-color-100 transition-all">
+                <div className="w-full h-full flex flex-col items-center justify-center  text-fc-color-100 transition-all">
                     {isDragActive ? (
                         <p className="font-bold text-md text-fc-color-100"> Solte para adicionar </p>
                     ) : (
-                        <div className="flex items-center justify-center flex-col">
-                            <p className="mb-2 text-sm ">
+                        <div className="w-full h-full flex items-center justify-center flex-col">
+                            <p className="flex items-center justify-center text-sm gap-1 max-sm:text-[0.6rem] max-md:text-[0.8rem] max-2xl:text-[0.9rem]">
                                 <span className="font-bold"> + Adicionar uma foto </span>
-                                <span>ou arraste até aqui</span>
+                                <span className="max-lg:hidden ">ou arraste até aqui</span>
                             </p>
-                            <p className="text-[10px]">
+                            <p className="text-[10px] max-lg:hidden">
                                 .png, .jpg, .jpeg, .svg
                             </p>
                         </div>
