@@ -14,8 +14,6 @@ import React, { useState } from "react";
 import "./styles.scss";
 import { useQueries } from "@tanstack/react-query";
 import { getCampanhas, getQuantidadeCampanhasAtivas } from "@/services/MarketingApi";
-
-import Loading from "@/app/loading";
 import { useRouter } from "next/navigation";
 
 const Campaigns: React.FC = () => {
@@ -47,7 +45,7 @@ const Campaigns: React.FC = () => {
     ],
   });
 
-  if (todasCampanhas.isLoading || quantidadeCampanhasAtivas.isLoading) return <Loading />;
+  if (todasCampanhas.isLoading || quantidadeCampanhasAtivas.isLoading) return <div>Carregando...</div>;
 
 
   return (

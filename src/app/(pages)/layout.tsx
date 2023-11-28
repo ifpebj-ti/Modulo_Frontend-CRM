@@ -28,7 +28,7 @@ export default function PagesLayout({
                 Segunda-Feira,
               </span>
               <span>
-                11 de setembro de 2023
+                {currentDateFormatted}
               </span>
             </div>
           </div>
