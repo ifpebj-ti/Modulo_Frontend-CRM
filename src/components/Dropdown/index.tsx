@@ -15,7 +15,7 @@ const Dropdown = ({ name, options }: DropdownProps) => {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <button
         type="button"
         className="inline-flex items-center gap-1 px-2 py-2 border border-gray-300 text-xs font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150"

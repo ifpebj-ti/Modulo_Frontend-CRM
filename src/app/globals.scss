@@ -13,12 +13,22 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
+    ::-webkit-scrollbar-track {
+      background-color: #f4f4f4;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      background: #f4f4f4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #dad7d7;
+    }
   }
 }
 
-body{
+body {
   width: 100vw;
   height: 100vh;
-  background-color: #F5F8FA;
-
+  background-color: #f5f8fa;
 }

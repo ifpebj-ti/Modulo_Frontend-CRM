@@ -10,32 +10,39 @@ export default function PagesLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
-      <div className="flex h-screen w-screen">
+    <section className="container-layout">
+
+      <div className="sidebar-layout">
         <SideBard />
-        <div className="flex flex-col h-full w-full pl-[4rem] pb-[40px] justify-around flex-wrap">
-          <div className="flex w-full max-w-[710px] items-center justify-between h-[10%]">
-            <div className="flex flex-col">
-              <span className="text-[34px] leading-[44px]">
-                Olá, <strong>Graça</strong>
+      </div>
+
+      <div className="content-layout">
+
+        <div className="box-menu-layout ">
+          <div className="box-text-layout">
+            <span className="saudacao-layout">
+              Olá, <strong>Graça</strong>
+            </span>
+            <div className="data-layout">
+              <span>
+                Segunda-Feira,
               </span>
-              <div className="leading-[22px] text-[#808080]">
-                {currentDateFormatted}
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center justify-center gap-2 border-[1px] w-full border-[#BBBDC9] rounded-[20px] px-2 py-2">
-                <MagnifyingGlass size={18} weight="bold" color="#525466"/>
-                <input
-                  type="text"
-                  placeholder="Pesquise uma campanha"
-                  className="bg-transparent active:border-none focus:border-none placeholder:text-[#525466] placeholder:text-sm w-full"
-                />
-              </div>
+              <span>
+                11 de setembro de 2023
+              </span>
             </div>
           </div>
-          <main className="h-[85%] 3xl:max-w-[2260px] 2xl:max-w-[1240px] xll:max-w-[1148px] xl:max-w-[980px] lg:max-w-[730px]">{children}</main>
+          <div className="box-search-layout">
+            <div className="search-layout">
+              <input
+                type="text"
+                placeholder="Pesquise aqui..."
+                className="ipt-search-layout"
+              />
+            </div>
+          </div>
         </div>
+        <main className="main-layout ">{children}</main>
       </div>
     </section>
   );
