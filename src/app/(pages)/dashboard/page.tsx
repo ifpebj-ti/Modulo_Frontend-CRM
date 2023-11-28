@@ -130,6 +130,7 @@ export default function Dashboard() {
           valor={faturamento.data.faturamentoComparado}
           percentual={faturamento.data.porcentagemAumento}
           href={"#"}
+          isCurrency={true}
         />
       </div>
       <div className="flex h-full gap-2 max-h-[80%]">
