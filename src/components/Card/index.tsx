@@ -37,7 +37,10 @@ const Card = ({
         </div>
         <div className=" text-gray-600 flex justify-start h-full">
           <div>
-            <Percentual isPositive={true} value={percentual} />
+            <Percentual
+              isPositive={parseFloat(percentual) < 0 ? false : true}
+              value={percentual}
+            />
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { ArrowDown, ArrowUp } from "@phosphor-icons/react";
 import React from "react";
 
 interface PercentualProps {
@@ -6,7 +7,11 @@ interface PercentualProps {
 }
 export function Percentual({ isPositive, value }: PercentualProps) {
   return (
-    <div className={`flex items-center justify-center ${isPositive ? 'bg-[#6AD97233]' : 'bg-[#ED7B84]'} p-[2px] gap-1 rounded-[6px] text-[10px]`}>
+    <div
+      className={`flex items-center justify-center ${
+        isPositive ? "bg-[#6AD97233] text-black" : "bg-[#ff2c3a6c] text-red-800"
+      } p-[2px] gap-1 rounded-[6px] text-[10px]`}
+    >
       {isPositive ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -21,15 +26,7 @@ export function Percentual({ isPositive, value }: PercentualProps) {
           />
         </svg>
       ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="#000000"
-          viewBox="0 0 256 256"
-        >
-          <path d="M204.24,116.24a6,6,0,0,1-8.48,0L134,54.49V216a6,6,0,0,1-12,0V54.49L60.24,116.24a6,6,0,0,1-8.48-8.48l72-72a6,6,0,0,1,8.48,0l72,72A6,6,0,0,1,204.24,116.24Z"></path>
-        </svg>
+        <ArrowDown size={10} weight="light" color="#4b3131fd" />
       )}
       {value}%
     </div>

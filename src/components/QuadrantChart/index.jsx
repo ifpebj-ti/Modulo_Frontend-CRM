@@ -52,8 +52,8 @@ function QuadrantChart({ data }) {
   const dataSet = anychart.data.set(filteredData);
   const markers = chart.marker(dataSet);
 
-  chart.xAxis().title('X: Valor Venda');
-  chart.yAxis().title('Y: Frequencia');
+  chart.xAxis().title('X: Valor Gasto (R$)');
+  chart.yAxis().title('Y: Frequência de Compra');
   chart.yScale().minimum(0);
   chart.yScale().maximum(1000);
   chart.xScale().minimum(0);
