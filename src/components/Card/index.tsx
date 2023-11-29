@@ -10,9 +10,17 @@ interface CardProps {
   href: string;
   valor: number | string;
   percentual: string;
+  isCurrency?: boolean;
 }
 
-const Card = ({ titulo, icon, href, valor, percentual }: CardProps) => {
+const Card = ({
+  titulo,
+  icon,
+  href,
+  valor,
+  percentual,
+  isCurrency,
+}: CardProps) => {
   return (
     <div className="bg-white rounded-lg shadow-lg flex flex-col gap-6 justify-between w-full h-[150px] p-4">
       <div className="  flex items-center">
@@ -21,6 +29,7 @@ const Card = ({ titulo, icon, href, valor, percentual }: CardProps) => {
       </div>
       <div className=" flex items-center justify-between">
         <div className=" text-lg font-semibold flex flex-col">
+          {isCurrency && "R$ "}
           {valor}
           <span className="text-[10px] font-medium text-[#6C757D] ">
             Comparado ao mês passado
@@ -28,7 +37,10 @@ const Card = ({ titulo, icon, href, valor, percentual }: CardProps) => {
         </div>
         <div className=" text-gray-600 flex justify-start h-full">
           <div>
-            <Percentual isPositive={true} value={percentual} />
+            <Percentual
+              isPositive={parseFloat(percentual) < 0 ? false : true}
+              value={percentual}
+            />
           </div>
         </div>
       </div>

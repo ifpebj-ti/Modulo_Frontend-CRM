@@ -130,6 +130,7 @@ export default function Dashboard() {
           valor={faturamento.data.faturamentoComparado}
           percentual={faturamento.data.porcentagemAumento}
           href={"#"}
+          isCurrency={true}
         />
       </div>
       <div className="flex h-full gap-2 max-h-[80%]">
@@ -148,7 +149,7 @@ export default function Dashboard() {
                     <tr>
                       <th className="text-left">Medalha</th>
                       <th className="text-left">Nome</th>
-                      <th className="text-left">Valor</th>
+                      <th className="text-left">Valor (R$)</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -300,7 +301,7 @@ export default function Dashboard() {
                             {key >= 3 && key + 1}
                           </td>
                           <td>{item.nomeClienteCompleto}</td>
-                          <td>{item.valorVenda}</td>
+                          <td>R$ {" "}{item.valorVenda}</td>
                         </tr>
                       );
                     })}
