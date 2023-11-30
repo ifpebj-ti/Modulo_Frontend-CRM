@@ -1,11 +1,13 @@
 "use client";
 
-import { House } from "@phosphor-icons/react";
-import Image from "next/image";
 import React from "react";
-import Logo from "../../../public/logo.svg";
 import Link from "next/link";
+import Image from "next/image";
 import { useSelectedLayoutSegment } from "next/navigation";
+
+import { ChartBar, House, Megaphone, SignOut } from "@phosphor-icons/react";
+import Logo from "../../../public/logo.svg";
+
 const SideBard: React.FC = () => {
   const segment = useSelectedLayoutSegment();
   const isActive = true;
@@ -13,52 +15,36 @@ const SideBard: React.FC = () => {
     {
       name: "Dashboard",
       href: "/dashboard",
-      icon: <House size={32} weight="fill" />,
+      icon: {
+        regular: <House size={24} weight="regular" />,
+        fill: <House size={24} weight="fill" />
+      },
       current: `/${segment}` === "/dashboard" ? true : false,
     },
     {
       name: "Campanhas",
       href: "/campaigns",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-        >
-          <path
-            d="M1.5 11.5833C1.50124 10.3902 1.97574 9.24637 2.81939 8.40272C3.66303 7.55908 4.80691 7.08457 6 7.08333H9.73125C10.0041 7.06739 14.7581 6.73271 19.2853 2.93583C19.5039 2.75223 19.7704 2.63482 20.0534 2.59741C20.3365 2.56 20.6243 2.60413 20.8831 2.72463C21.1419 2.84513 21.361 3.03699 21.5145 3.27766C21.6681 3.51834 21.7498 3.79784 21.75 4.08333V19.0833C21.75 19.3689 21.6684 19.6485 21.5149 19.8893C21.3614 20.1302 21.1424 20.3222 20.8835 20.4428C20.6247 20.5634 20.3368 20.6076 20.0537 20.5702C19.7706 20.5328 19.504 20.4154 19.2853 20.2318C15.7444 17.2618 12.0666 16.4105 10.5 16.1724V19.1461C10.5003 19.3933 10.4395 19.6367 10.3231 19.8548C10.2066 20.0728 10.0381 20.2587 9.8325 20.3958L8.80125 21.083C8.60192 21.2161 8.37362 21.2994 8.13546 21.3261C7.8973 21.3527 7.65622 21.322 7.43241 21.2363C7.20859 21.1507 7.00855 21.0126 6.84904 20.8338C6.68954 20.6549 6.57521 20.4405 6.51562 20.2083L5.41219 16.0496C4.32963 15.9055 3.33621 15.3733 2.61662 14.5518C1.89702 13.7303 1.50023 12.6754 1.5 11.5833ZM20.25 19.0768V4.08333C16.2366 7.44989 12.1284 8.30208 10.5 8.51208V14.6508C12.1266 14.8646 16.2337 15.7149 20.25 19.0768ZM7.96875 19.8268V19.8371L9 19.1499V16.0833H6.975L7.96875 19.8268ZM6 14.5833H9V8.58333H6C5.20435 8.58333 4.44129 8.8994 3.87868 9.46201C3.31607 10.0246 3 10.7877 3 11.5833C3 12.379 3.31607 13.142 3.87868 13.7047C4.44129 14.2673 5.20435 14.5833 6 14.5833Z"
-            fill="black"
-          />
-        </svg>
-      ),
+      icon: {
+        regular: <Megaphone size={24} weight="regular" />,
+        fill: <Megaphone size={24} weight="fill" />
+      },
       current: `/${segment}` === "/campaigns" ? true : false,
     },
     {
       name: "Vendas",
       href: "/sales",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-        >
-          <path
-            d="M21 19.0833H20.25V4.08325C20.25 3.88434 20.171 3.69357 20.0303 3.55292C19.8897 3.41227 19.6989 3.33325 19.5 3.33325H14.25C14.0511 3.33325 13.8603 3.41227 13.7197 3.55292C13.579 3.69357 13.5 3.88434 13.5 4.08325V7.83325H9C8.80109 7.83325 8.61032 7.91227 8.46967 8.05292C8.32902 8.19357 8.25 8.38434 8.25 8.58325V12.3333H4.5C4.30109 12.3333 4.11032 12.4123 3.96967 12.5529C3.82902 12.6936 3.75 12.8843 3.75 13.0833V19.0833H3C2.80109 19.0833 2.61032 19.1623 2.46967 19.3029C2.32902 19.4436 2.25 19.6343 2.25 19.8333C2.25 20.0322 2.32902 20.2229 2.46967 20.3636C2.61032 20.5042 2.80109 20.5833 3 20.5833H21C21.1989 20.5833 21.3897 20.5042 21.5303 20.3636C21.671 20.2229 21.75 20.0322 21.75 19.8333C21.75 19.6343 21.671 19.4436 21.5303 19.3029C21.3897 19.1623 21.1989 19.0833 21 19.0833ZM15 4.83325H18.75V19.0833H15V4.83325ZM9.75 9.33325H13.5V19.0833H9.75V9.33325ZM5.25 13.8333H8.25V19.0833H5.25V13.8333Z"
-            fill="black"
-          />
-        </svg>
-      ),
+      icon: {
+        regular: <ChartBar size={24} weight="regular" />,
+        fill: <ChartBar size={24} weight="fill" />
+      },
       current: `/${segment}` === "/sales" ? true : false,
     },
   ];
+
   return (
-    <div className="w-full h-full">
-      <div className="h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] pl-[21px] pr-[19px] max-md:px-[10px]">
-        <Image src={Logo} alt={"Logo Cavalcante"} />
+    <div className="w-full h-full max-w-[170px]">
+      <div className=" h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] px-[20px] max-md:px-[10px]">
+      <Image src={Logo} alt={"Logo Cavalcante"} />
         <div>
           <div className="flex flex-col gap-[40px] ">
             {sideBarPages.map((page) => {
@@ -66,11 +52,11 @@ const SideBard: React.FC = () => {
                 <>
                   <Link
                     href={page.href}
-                    className={`flex gap-[12px]  cursor-pointer hover:opacity-80 items-center ${page.current ? "font-bold" : ""
+                    className={`flex gap-[12px] text-sm cursor-pointer hover:opacity-80 items-center ${page.current ? "font-bold" : ""
                       }`}
                     key={page.name}
                   >
-                    {page.icon}
+                    {page.current ? page.icon.fill : page.icon.regular}
                     {page.name}
                   </Link>
                 </>
@@ -120,20 +106,9 @@ const SideBard: React.FC = () => {
               </svg>
             </div>
           </div>
-          <div className="flex gap-[12px] cursor-pointer hover:opacity-80">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M10.5 20.25C10.5 20.4489 10.421 20.6397 10.2803 20.7803C10.1397 20.921 9.94891 21 9.75 21H4.5C4.10218 21 3.72064 20.842 3.43934 20.5607C3.15804 20.2794 3 19.8978 3 19.5V4.5C3 4.10218 3.15804 3.72064 3.43934 3.43934C3.72064 3.15804 4.10218 3 4.5 3H9.75C9.94891 3 10.1397 3.07902 10.2803 3.21967C10.421 3.36032 10.5 3.55109 10.5 3.75C10.5 3.94891 10.421 4.13968 10.2803 4.28033C10.1397 4.42098 9.94891 4.5 9.75 4.5H4.5V19.5H9.75C9.94891 19.5 10.1397 19.579 10.2803 19.7197C10.421 19.8603 10.5 20.0511 10.5 20.25ZM20.7806 11.4694L17.0306 7.71937C16.8899 7.57864 16.699 7.49958 16.5 7.49958C16.301 7.49958 16.1101 7.57864 15.9694 7.71937C15.8286 7.86011 15.7496 8.05098 15.7496 8.25C15.7496 8.44902 15.8286 8.63989 15.9694 8.78063L18.4397 11.25H9.75C9.55109 11.25 9.36032 11.329 9.21967 11.4697C9.07902 11.6103 9 11.8011 9 12C9 12.1989 9.07902 12.3897 9.21967 12.5303C9.36032 12.671 9.55109 12.75 9.75 12.75H18.4397L15.9694 15.2194C15.8286 15.3601 15.7496 15.551 15.7496 15.75C15.7496 15.949 15.8286 16.1399 15.9694 16.2806C16.1101 16.4214 16.301 16.5004 16.5 16.5004C16.699 16.5004 16.8899 16.4214 17.0306 16.2806L20.7806 12.5306C20.8504 12.461 20.9057 12.3783 20.9434 12.2872C20.9812 12.1962 21.0006 12.0986 21.0006 12C21.0006 11.9014 20.9812 11.8038 20.9434 11.7128C20.9057 11.6217 20.8504 11.539 20.7806 11.4694Z"
-                fill="#1C1C1C"
-              />
-            </svg>
-            sair
+          <div className="flex gap-[12px] text-sm cursor-pointer hover:opacity-80">
+            <SignOut size={22} />
+            Sair
           </div>
         </div>
       </div>

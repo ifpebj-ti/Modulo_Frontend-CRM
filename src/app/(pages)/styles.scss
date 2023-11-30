@@ -43,6 +43,8 @@
         .sidebar-layout {}
 
         .content-layout {
+            overflow: scroll;
+            
             .box-menu-layout {
                 @apply h-[10%];
 

@@ -1,5 +1,6 @@
 import SideBard from "@/components/SideBard";
 import "./styles.scss"
+import { currentDateFormatted } from "@/utils/formatDate";
 
 export default function PagesLayout({
   children, // will be a page or nested layout
@@ -22,10 +23,7 @@ export default function PagesLayout({
             </span>
             <div className="data-layout">
               <span>
-                Segunda-Feira,
-              </span>
-              <span>
-                11 de setembro de 2023
+                {currentDateFormatted}
               </span>
             </div>
           </div>
