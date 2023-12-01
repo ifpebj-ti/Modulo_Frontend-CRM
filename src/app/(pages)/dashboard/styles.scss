@@ -16,7 +16,7 @@
 }
 
 .grid-grafics {
-  @apply flex h-full gap-2 max-h-[80%]
+  @apply flex flex-col h-full gap-2 max-h-[80%]
 }
 
 @media (max-width: 1279px) {

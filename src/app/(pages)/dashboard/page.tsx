@@ -138,10 +138,10 @@ export default function Dashboard() {
       {/** Grid de Gráficos */}
       <div className="grid-grafics">
 
-        <div className="max-h-full overflow-scroll w-[70%] flex flex-col gap-4 overflow-x-hidden pr-4 max-[1279px]:w-[100%] max-[766px]:flex-col max-[1279px]:flex-row max-[1279px]:pr-0">
+        <div className="max-h-full flex flex-row gap-4 overflow-x-hidden max-[1279px]:w-[100%] max-[766px]:flex-col max-[1279px]:flex-row max-[1279px]:pr-0">
           
           {/** Gráfico de Clientes que mais compraram no mês */}
-          <div className="flex flex-col items-start gap-18 w-full p-[16px] bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
+          <div className="flex flex-col items-start gap-18 w-full min-[1279px]:w-[50%] p-[16px] bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
             
             <div className="flex gap-8 flex-col justify-between w-full items-center">
 
@@ -323,7 +323,7 @@ export default function Dashboard() {
           </div>
 
           {/** Gráfico de Distribuição de Clientes por Idade ou Gênero */}
-          <div className="flex flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white w-full">
+          <div className="flex flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white w-full min-[1279px]:w-[50%]">
             <div className="flex justify-between items-center w-full">
               <span className="text-[14px] font-bold">
                 Distribuição de Clientes por Idade ou Gênero
