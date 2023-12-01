@@ -13,3 +13,9 @@
     max-width: 95px;
    }
 }
+
+@media (max-width: 639px) {
+  .container {
+    position: absolute;
+   }
+}
