@@ -10,6 +10,7 @@ import Logo from "../../../public/logo.svg";
 import smallLogo from "../../../public/icon.png"
 
 import './styles.scss'
+import { currentDateFormatted } from "@/utils/formatDate";
 
 const SideBard: React.FC = () => {
   const segment = useSelectedLayoutSegment();
@@ -47,8 +48,11 @@ const SideBard: React.FC = () => {
   return (
     <div className="container">
       <div className=" h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] px-[20px] max-md:px-[10px]">
-      <Image src={Logo} alt={"Logo Cavalcante"} className="max-[1279px]:hidden" />
-      <Image src={smallLogo} alt={"Logo Cavalcante"} className="min-[1279px]:hidden  max-w-[60%]" />
+      <div className="flex flex-col gap-3 items-center">
+        <Image src={Logo} alt={"Logo Cavalcante"} className="max-[1279px]:hidden" />
+        <Image src={smallLogo} alt={"Logo Cavalcante"} className="min-[1279px]:hidden  max-w-[60%]" />
+        <p className="text-xs text-center font-semibold text-[#6C757D]">{currentDateFormatted}</p>
+      </div>
         <div>
           <div className="flex flex-col gap-[40px] ">
             {sideBarPages.map((page) => {

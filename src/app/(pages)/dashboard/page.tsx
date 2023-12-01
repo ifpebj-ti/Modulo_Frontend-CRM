@@ -133,10 +133,17 @@ export default function Dashboard() {
           isCurrency={true}
         />
       </div>
-      <div className="flex h-full gap-2 max-h-[80%]">
-        <div className="max-h-full overflow-scroll w-[40%] flex flex-wrap gap-4 overflow-x-hidden p-4">
+
+      {/** Grid de Gráficos */}
+      <div className="grid-grafics">
+
+        <div className="max-h-full overflow-scroll w-[45%] flex flex-col gap-4 overflow-x-hidden pr-4 max-[1279px]:w-[100%] max-[1279px]:flex-row max-[1279px]:pr-0">
+          
+          {/** Gráfico de Clientes que mais compraram no mês */}
           <div className="flex flex-col items-start gap-18 w-full p-[16px] bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
+            
             <div className="flex gap-8 flex-col justify-between w-full items-center">
+
               <div className="flex justify-between items-center w-full">
                 <span className="text-[14px] font-bold">
                   Clientes que mais compraram no mês
@@ -309,7 +316,10 @@ export default function Dashboard() {
                 </table>
               </div>
             </div>
+
           </div>
+
+          {/** Gráfico de Distribuição de Clientes por Idade ou Gênero */}
           <div className="flex flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white w-full">
             <div className="flex justify-between items-center w-full">
               <span className="text-[14px] font-bold">
@@ -326,18 +336,11 @@ export default function Dashboard() {
               />
             </div>
           </div>
-          <div className="flex flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white w-full">
-            <div className="flex justify-between items-center w-full">
-              <span className="text-[14px] font-bold">
-                Análise de tração de clientes durante o ano
-              </span>
-            </div>
-            <div className="flex w-full justify-center items-center h-[200px]">
-              <LineChart data={ObterQtdClientesAnual.data} />
-            </div>
-          </div>
+
         </div>
-        <div className="w-[60%]">
+
+        {/** Gráfico de Análise de Clientes e Compras - Frequência de Compra x Valor gasto */}
+        <div className="w-[100%]">
           <div className=" flex gap-[34px] h-full w-full">
             <div className="w-full flex flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white">
               <div className="flex justify-between items-center w-full">
@@ -346,13 +349,27 @@ export default function Dashboard() {
                   gasto
                 </span>
               </div>
-              <div className="self-stretch w-full h-full">
+              <div className="self-stretch w-full h-[400px]">
                 <QuadrantChart data={frequenciaVendasChartData.data} />
               </div>
             </div>
           </div>
         </div>
+
       </div>
+
+      {/** Gráfico de Análise de tração de clientes durante o ano */}
+      <div className="flex flex-col items-start gap-6 rounded border border-[#E9ECEF] p-4 border-solid bg-white w-full">
+        <div className="flex justify-between items-center w-full">
+          <span className="text-[14px] font-bold">
+            Análise de tração de clientes durante o ano
+          </span>
+        </div>
+        <div className="flex w-full justify-center items-center">
+          <LineChart data={ObterQtdClientesAnual.data} />
+        </div>
+      </div>
+
     </div>
   );
 }

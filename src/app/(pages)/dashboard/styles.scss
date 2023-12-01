@@ -15,9 +15,17 @@
   max-height: 20%;
 }
 
+.grid-grafics {
+  @apply flex h-full gap-2 max-h-[80%]
+}
+
 @media (max-width: 1279px) {
   .grid-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-grafics {
+    flex-direction: column;
   }
 }
