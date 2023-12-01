@@ -1,9 +1,9 @@
 .container-layout {
-    @apply w-[100%] h-[100%] flex flex-row items-center justify-between;
+    @apply flex flex-row justify-between;
 
-    .sidebar-layout {
+    /* .sidebar-layout {
         @apply w-[10%] h-full;
-    }
+    } */
 
     .content-layout {
         @apply w-[90%] h-full flex flex-col items-center justify-evenly p-[10px];

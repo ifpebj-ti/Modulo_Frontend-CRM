@@ -23,8 +23,8 @@ const Card = ({
 }: CardProps) => {
   return (
     <div className="bg-white rounded-lg shadow-lg flex flex-col gap-6 justify-between w-full h-[150px] p-4">
-      <div className="  flex items-center">
-        <p className="  text-[12px] font-semibold">{titulo}</p>
+      <div className="flex items-center">
+        <p className="text-[12px] font-semibold">{titulo}</p>
         <div className=" ml-auto">{icon}</div>
       </div>
       <div className=" flex items-center justify-between">

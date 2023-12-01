@@ -1,0 +1,15 @@
+.container {
+  @apply w-full h-[100vh] max-w-[170px] fixed top-0 left-0
+}
+
+@media (min-width: 767px) and (max-width: 850px) {
+  .container {
+   max-width: 130px;
+  }
+}
+
+@media (max-width: 766px) {
+  .container {
+    max-width: 95px;
+   }
+}

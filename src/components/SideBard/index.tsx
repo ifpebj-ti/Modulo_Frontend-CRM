@@ -7,6 +7,9 @@ import { useSelectedLayoutSegment } from "next/navigation";
 
 import { ChartBar, House, Megaphone, SignOut } from "@phosphor-icons/react";
 import Logo from "../../../public/logo.svg";
+import smallLogo from "../../../public/icon.png"
+
+import './styles.scss'
 
 const SideBard: React.FC = () => {
   const segment = useSelectedLayoutSegment();
@@ -42,9 +45,10 @@ const SideBard: React.FC = () => {
   ];
 
   return (
-    <div className="w-full h-full max-w-[170px]">
+    <div className="container">
       <div className=" h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] px-[20px] max-md:px-[10px]">
-      <Image src={Logo} alt={"Logo Cavalcante"} />
+      <Image src={Logo} alt={"Logo Cavalcante"} className="max-[1279px]:hidden" />
+      <Image src={smallLogo} alt={"Logo Cavalcante"} className="min-[1279px]:hidden  max-w-[60%]" />
         <div>
           <div className="flex flex-col gap-[40px] ">
             {sideBarPages.map((page) => {
@@ -52,7 +56,7 @@ const SideBard: React.FC = () => {
                 <>
                   <Link
                     href={page.href}
-                    className={`flex gap-[12px] text-sm cursor-pointer hover:opacity-80 items-center ${page.current ? "font-bold" : ""
+                    className={`flex max-[1279px]:flex-col min-[1280px]:flex-row gap-[12px] text-sm cursor-pointer hover:opacity-80 items-center ${page.current ? "font-bold" : ""
                       }`}
                     key={page.name}
                   >

@@ -102,7 +102,7 @@ export default function Dashboard() {
 
   return (
     <div className="bg-[#F5F8FA] flex flex-col gap-[32px] h-full w-full">
-      <div className="flex gap-6 justify-between  max-w-full max-h-[20%]">
+      <div className="grid-card">
         <Card
           titulo="Número de Clientes Associados"
           icon={<Users size={16} />}

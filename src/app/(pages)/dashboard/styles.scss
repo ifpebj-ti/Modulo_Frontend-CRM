@@ -8,3 +8,16 @@
 ::-webkit-scrollbar-thumb {
   background: #dad7d7;
 }
+
+.grid-card {
+  display: flex;
+  gap: 1.5rem;
+  max-height: 20%;
+}
+
+@media (max-width: 1279px) {
+  .grid-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
