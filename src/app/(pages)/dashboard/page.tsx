@@ -24,6 +24,7 @@ import React, { useState } from "react";
 import './styles.scss'
 import { Chart } from "react-google-charts";
 import QuadrantChart from "../../../components/QuadrantChart";
+import Loading from "@/app/loading";
 
 const options = {
   // title: "My Daily Activities",
@@ -87,7 +88,7 @@ export default function Dashboard() {
     ObterClientesPorGeneroIdade.isLoading ||
     ObterQtdClientesAnual.isLoading
   )
-    return <div>Loading...</div>;
+    return <Loading/>;
 
   if (
     faturamento.isError ||
@@ -137,7 +138,7 @@ export default function Dashboard() {
       {/** Grid de Gráficos */}
       <div className="grid-grafics">
 
-        <div className="max-h-full overflow-scroll w-[45%] flex flex-col gap-4 overflow-x-hidden pr-4 max-[1279px]:w-[100%] max-[1279px]:flex-row max-[1279px]:pr-0">
+        <div className="max-h-full overflow-scroll w-[70%] flex flex-col gap-4 overflow-x-hidden pr-4 max-[1279px]:w-[100%] max-[766px]:flex-col max-[1279px]:flex-row max-[1279px]:pr-0">
           
           {/** Gráfico de Clientes que mais compraram no mês */}
           <div className="flex flex-col items-start gap-18 w-full p-[16px] bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
@@ -145,11 +146,12 @@ export default function Dashboard() {
             <div className="flex gap-8 flex-col justify-between w-full items-center">
 
               <div className="flex justify-between items-center w-full">
-                <span className="text-[14px] font-bold">
+                <span className="text-[14px] font-bold max-[1279px]:text-sm">
                   Clientes que mais compraram no mês
                 </span>
                 <Dropdown name={"Farmácia 24 Horas"} />
               </div>
+              
               <div className="w-full">
                 <table className="w-full">
                   <thead className="bg-white">
@@ -315,6 +317,7 @@ export default function Dashboard() {
                   </tbody>
                 </table>
               </div>
+
             </div>
 
           </div>

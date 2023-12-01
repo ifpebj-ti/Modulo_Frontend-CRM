@@ -1,3 +1,4 @@
+import { CaretDown } from "@phosphor-icons/react";
 import React from "react";
 import { useState } from "react";
 
@@ -14,14 +15,15 @@ const Dropdown = ({ name, options }: DropdownProps) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="">
       <button
         type="button"
-        className="w-full inline-flex items-center px-2 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150"
+        className=" w-full inline-flex items-center gap-1 px-2 py-2 border border-gray-300 text-sm max-[1279px]:text-xs font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150"
         data-dropdown-toggle="dropdown-menu"
         onClick={handleClick}
       >
         {name}
+        <CaretDown size={16}/>
       </button>
       <div
         id="dropdown-menu"

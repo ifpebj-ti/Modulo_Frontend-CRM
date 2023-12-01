@@ -110,7 +110,9 @@
 /* Phone Styles (640px-767px) */
 @media (min-width: 640px) and (max-width: 766px) {
     .container-layout {
-        .sidebar-layout {}
+        .sidebar-layout {
+            /* display: none; */
+        }
 
         .content-layout {
             .box-menu-layout {
@@ -135,14 +137,15 @@
 /* Small Phone Styles (0-639px) */
 @media (max-width: 639px) {
     .container-layout {
-        @apply flex h-[screen] w-screen;
+        @apply flex w-screen justify-center;
 
         .sidebar-layout {
-            @apply w-[15%] h-full bg-fc-color-300;
+            /* @apply w-[15%] h-full bg-fc-color-300; */
+            display: none;
         }
 
         .content-layout {
-            @apply w-[85%] h-[full] flex flex-col justify-between p-4;
+            @apply  h-[full] flex flex-col justify-between p-4;
 
             .box-menu-layout {
                 @apply flex justify-center;
