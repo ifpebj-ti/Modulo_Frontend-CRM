@@ -8,3 +8,31 @@
 ::-webkit-scrollbar-thumb {
   background: #dad7d7;
 }
+
+.grid-card {
+  display: flex;
+  gap: 1.5rem;
+  max-height: 20%;
+}
+
+.grid-grafics {
+  @apply flex flex-col h-full gap-2 max-h-[80%]
+}
+
+@media (max-width: 1279px) {
+  .grid-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-grafics {
+    flex-direction: column;
+  }
+}
+
+/* @media (max-width: 639px){
+  .grid-card {
+    display: flex;
+    flex-direction: column;
+  }
+} */

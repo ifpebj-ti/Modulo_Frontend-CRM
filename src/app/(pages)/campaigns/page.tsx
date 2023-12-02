@@ -1,7 +1,14 @@
 "use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+
+import { useQueries } from "@tanstack/react-query";
+import { getCampanhas, getQuantidadeCampanhasAtivas } from "@/services/MarketingApi";
+
 import Button from "@/components/Button";
 import CampaignCard from "@/components/CampaignCard";
 import Card from "@/components/Card";
+
 import {
   ChartLine,
   HandCoins,
@@ -10,15 +17,14 @@ import {
   Plus,
   ThumbsUp,
 } from "@phosphor-icons/react";
-import React, { useState } from "react";
+
 import "./styles.scss";
-import { useQueries } from "@tanstack/react-query";
-import { getCampanhas, getQuantidadeCampanhasAtivas } from "@/services/MarketingApi";
-import { useRouter } from "next/navigation";
 
 const Campaigns: React.FC = () => {
+
   const router = useRouter()
   const [selectedTab, setSelectedTab] = useState("listagem_campanhas");
+
   const tabs = [
     {
       name: "Listagem das campanhas",
@@ -50,13 +56,14 @@ const Campaigns: React.FC = () => {
 
   return (
     <div>
+
       <div className="flex w-full">
         {" "}
         {tabs.map((tab) => {
           return (
             <>
               <div
-                className={` border-b-2 border-gray-400 p-3 w-[50%] text-center cursor-pointer opacity-60  ${tab.isActive
+                className={` max-[600px]:text-sm border-b-2 border-gray-400 p-3 w-[50%] text-center cursor-pointer opacity-60  ${tab.isActive
                     ? "bg-[#6AD97233] !opacity-100 font-bold text-black"
                     : ""
                   } `}
@@ -68,22 +75,24 @@ const Campaigns: React.FC = () => {
           );
         })}
       </div>
+
       {selectedTab === "listagem_campanhas" ? (
         <>
           <div className="flex justify-end">
             <Button
-              className="bg-[#106E41] mt-[24px] p-3 flex items-center justify-center gap-[8px] hover:opacity-50"
+              className="bg-[#106E41] mt-[24px] px-3 py-[10px] flex items-center justify-center gap-[8px] hover:opacity-50 max-[600px]:text-sm max-[600px]:max-w-[220px]"
               onClick={() => router.push('/create-campaigns')}
             >
               <Plus size={14} weight="bold" />
               Adicionar uma campanha
             </Button>
           </div>
+
           <div>
             <div className="text-lg not-italic font-medium leading-6 mt-4">
               Campanhas Frequentes
             </div>
-            <div className="flex gap-[27px] mt-4">
+            <div className="flex min-[768px]:flex-wrap max-[767px]:grid max-[767px]:grid-cols-2 gap-[27px] mt-4">
               <CampaignCard
                 title={"Campanha Quarta do Bebê"}
                 status="in_progress"
@@ -122,7 +131,7 @@ const Campaigns: React.FC = () => {
             <div className="text-lg not-italic font-medium leading-6 mt-4">
               Todas as Campanhas
             </div>
-            <div className="flex gap-[27px] mt-4 flex-wrap max-h-[400px ] overflow-auto">
+            <div className="flex gap-[27px] mt-4 min-[768px]:flex-wrap max-[767px]:grid max-[767px]:grid-cols-2">
               {todasCampanhas.data?.map((campanha: any, key: any) => {
                 return (
                   <CampaignCard
@@ -141,7 +150,7 @@ const Campaigns: React.FC = () => {
         </>
       ) : (
         <>
-          <div className="flex gap-6 justify-between  max-w-full max-h-[20%] mt-6">
+          <div className="flex flex-wrap gap-6 justify-between  max-w-full max-h-[20%] mt-6">
             <Card
               titulo="Número de Campanhas Ativas"
               icon={<Megaphone size={16} />}

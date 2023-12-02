@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import CavalcanteLogo from "/public/logo.svg";
+
 import Input from "@/components/Input";
 import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,7 +14,7 @@ export default function Home() {
   return (
     <main className=" h-screen w-screen flex flex-col">
       <div className="flex flex-col justify-center items-center w-full h-full">
-        <div className="flex flex-col items-center gap-6 rounded-3xl  pt-7 pb-7 pr-6 pl-6 border-gray-200 bg-white shadow-lg">
+        <div className="flex flex-col items-center gap-6 rounded-3xl pt-7 pb-7 pr-6 pl-6 border-gray-200 bg-white shadow-lg">
           <div>
             <Image src={CavalcanteLogo} alt={"Logo da Farmácia Cavalcante"} />
           </div>
