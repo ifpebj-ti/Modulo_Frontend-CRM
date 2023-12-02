@@ -55,6 +55,7 @@ const SideBard: React.FC = () => {
   return (
     <div className="container">
 
+      {/** Menu Sidebar */}
       <div className="h-full w-full bg-white flex flex-col justify-between items-center pt-[36px] pb-[36px] px-[20px] max-md:px-[10px] max-[639px]:hidden">
         <div className="flex flex-col gap-3 items-center">
           <Image src={Logo} alt={"Logo Cavalcante"} className="max-[1279px]:hidden" />
@@ -129,13 +130,14 @@ const SideBard: React.FC = () => {
         </div>
       </div>
 
+      {/** Menu Hamburger */}
       <div className="min-[640px]:hidden mt-4 ml-4">
         <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <List size={32}/>
         </button>
-        <div className={`fixed inset-0 bg-white z-50 ${isMenuOpen ? 'block' : 'hidden'}`}>
-          <div className="w-full h-full">
-            <div className="flex flex-col gap-4">
+        <div className={`fixed top-0 bottom-0 left-0 bg-white z-50 ${isMenuOpen ? 'block' : 'hidden'}`}>
+          <div className="w-full h-full mr-5 flex flex-col justify-between">
+            <div className="flex flex-col gap-6">
               <button type="button" className="mt-4 ml-4" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 <X size={32}/>
               </button>
@@ -197,7 +199,7 @@ const SideBard: React.FC = () => {
                   </svg>
                 </div>
               </div>
-              <div className="flex ml-4 gap-[12px] text-sm cursor-pointer hover:opacity-80">
+              <div className="flex ml-4 mb-16 gap-[12px] text-sm cursor-pointer hover:opacity-80">
                 <SignOut size={22} />
                 Sair
               </div>
