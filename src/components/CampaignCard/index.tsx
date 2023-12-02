@@ -27,9 +27,9 @@ const CampaignCard: React.FC<CampaignCardProps> = ({
       className={`${args.className} flex flex-col gap-3 p-3 bg-white border border-[#DEE2E6] rounded-lg border-solid w-full max-w-[270px] cursor-pointer hover:opacity-75`}
       onClick={onClickAction}
     >
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center max-[600px]:flex-col max-[600px]:gap-1">
         <div
-          className={` px-1.5 py-0.5 rounded-md h-fit text-sm  ${
+          className={`px-1.5 py-0.5 rounded-md h-fit text-xs ${
             status === "in_progress" && "bg-[#A4DEF980]"
           } ${status === "finished" && "bg-[#6AD97233]"} ${
             status === "closed" && "bg-[#F75A6833]"
@@ -48,13 +48,15 @@ const CampaignCard: React.FC<CampaignCardProps> = ({
           </div>
         </div>
       </div>
+
       <div className="flex flex-col gap-[2px]">
-        <div className="font-medium text-xs">{title}</div>
-        <div className="font-medium text-[8px] leading-[14px] text-[#6C757D]">
+        <div className="font-medium text-sm">{title}</div>
+        <div className="font-medium text-[10px] leading-[14px] text-[#6C757D]">
           {startDate} - {endDate}
         </div>
       </div>
-      <div className="font-medium text-[8px] leading-[14px] text-[#1C1C1C]">
+
+      <div className="font-medium text-[10px] leading-[14px] text-[#1C1C1C]">
         Criado por {createdByUser} - {createdDate}
       </div>
     </div>

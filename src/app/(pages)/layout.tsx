@@ -1,7 +1,7 @@
 "use client"
 
-import SideBard from "@/components/SideBard";
 import "./styles.scss"
+import SideBard from "@/components/SideBard";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
 export default function PagesLayout({
