@@ -4,7 +4,7 @@ import Dropdown from "@/components/Dropdown";
 import { Users } from "@phosphor-icons/react";
 import React, { useState } from "react";
 import Peaker from "@/components/datepicker";
-import { getTotalSales } from "../../../services/SalesApi";
+import { getSaleByClient, getTotalSales } from "../../../services/SalesApi";
 import { useQueries } from "@tanstack/react-query";
 
 function Sales() {
@@ -29,12 +29,12 @@ function Sales() {
       {
         queryKey: ["getTotalSales"],
         queryFn: () =>
-          getTotalSales(formatDate(startDate), formatDate(endDate), 4),
+          getTotalSales('2020-01-01', '2023-12-30', 4),
       },
-      // {
-      //   queryKey: ["vendas"],
-      //   queryFn: () => getQtdVendasComparadoMesAnterior(),
-      // },
+      {
+        queryKey: ["getSaleByClient"],
+        queryFn: () => getSaleByClient(4),
+      },
       // {
       //   queryKey: ["qtdAssociados"],
       //   queryFn: () => getQtdClientesComparadoMesAnterior(),
