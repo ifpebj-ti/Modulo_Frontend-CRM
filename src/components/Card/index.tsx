@@ -7,7 +7,7 @@ interface CardProps {
   titulo: string;
   icon: any;
   href: string;
-  valor: number | string;
+  valor: string | number;
   percentual: string;
   isCurrency?: boolean;
 }
@@ -47,14 +47,6 @@ const Card = ({
       </div>
     </div>
   );
-};
-
-Card.propTypes = {
-  titulo: PropTypes.string.isRequired,
-  icon: PropTypes.any.isRequired,
-  href: PropTypes.string.isRequired,
-  valor: PropTypes.string.isRequired,
-  percentual: PropTypes.string.isRequired,
 };
 
 export default Card;
