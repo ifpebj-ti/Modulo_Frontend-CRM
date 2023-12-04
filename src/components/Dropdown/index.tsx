@@ -5,7 +5,7 @@ import { useState } from "react";
 interface DropdownProps {
   name?: string;
   options?: string[];
-  handleGetSelectedOption?: (option: any) => void;
+  handleGetSelectedOption?: (option: any, name: any) => void;
 }
 
 const Dropdown = ({ name, options, handleGetSelectedOption }: DropdownProps) => {
@@ -36,19 +36,19 @@ const Dropdown = ({ name, options, handleGetSelectedOption }: DropdownProps) => 
         aria-orientation="vertical"
         aria-labelledby="dropdown-trigger"
       >
-        {options?.map((option: any, index) => {
+        {options?.map(({id_filial, nome}: any, index) => {
           return (
             <button
-              key={index}
+              key={`${id_filial} - ${index}`}
               onClick={() => {
-                setSelectedOption(option);
-                handleGetSelectedOption && handleGetSelectedOption(option);
+                setSelectedOption(nome);
+                handleGetSelectedOption && handleGetSelectedOption(id_filial, name);
                 setIsDropdownOpen(false);
               }}
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
               role="menuitem"
             >
-              {option}
+              {nome}
             </button>
           );
         })}
