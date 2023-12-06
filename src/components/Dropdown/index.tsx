@@ -5,10 +5,12 @@ import { useState } from "react";
 interface DropdownProps {
   name?: string;
   options?: string[];
+  handleGetSelectedOption?: (option: any, name: any) => void;
 }
 
-const Dropdown = ({ name, options }: DropdownProps) => {
+const Dropdown = ({ name, options, handleGetSelectedOption }: DropdownProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(false);
 
   const handleClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -18,12 +20,12 @@ const Dropdown = ({ name, options }: DropdownProps) => {
     <div className="">
       <button
         type="button"
-        className=" w-full inline-flex items-center gap-1 px-2 py-2 border border-gray-300 text-sm max-[1279px]:text-xs font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150"
+        className=" w-fit inline-flex items-center gap-1 px-2 py-2 border border-gray-300 text-sm max-[1279px]:text-xs font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150"
         data-dropdown-toggle="dropdown-menu"
         onClick={handleClick}
       >
-        {name}
-        <CaretDown size={16}/>
+        {selectedOption || name}
+        <CaretDown size={16} />
       </button>
       <div
         id="dropdown-menu"
@@ -34,24 +36,22 @@ const Dropdown = ({ name, options }: DropdownProps) => {
         aria-orientation="vertical"
         aria-labelledby="dropdown-trigger"
       >
-        <a
-          href="#"
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-        >
-          Option 1
-        </a>
-        <a
-          href="#"
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-        >
-          Option 2
-        </a>
-        <a
-          href="#"
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-        >
-          Option 3
-        </a>
+        {options?.map(({id_filial, nome}: any, index) => {
+          return (
+            <button
+              key={`${id_filial} - ${index}`}
+              onClick={() => {
+                setSelectedOption(nome);
+                handleGetSelectedOption && handleGetSelectedOption(id_filial, name);
+                setIsDropdownOpen(false);
+              }}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
+              role="menuitem"
+            >
+              {nome}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
