@@ -67,3 +67,16 @@ export const getAvailableBranches = async () => {
     });
   return response;
 };
+export const getBestSellingProducts = async (startDate: any,endDate: any, branchID: number) => {
+  const response = await salesApi
+    .get("/products/bestSellingProducts", { params: { startDate: startDate, endDate: endDate, branchId: branchID } })
+    .then((response) => {
+      // handle the response
+      return response.data;
+    })
+    .catch((error) => {
+      // handle the error
+      return error;
+    });
+  return response;
+};

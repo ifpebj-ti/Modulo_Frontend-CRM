@@ -1,5 +1,5 @@
 import Card from "@/components/Card";
-import { getTicketsByIntervalAndBranch, getTotalBilling, getTotalSales } from "@/services/SalesApi";
+import { getBestSellingProducts, getTicketsByIntervalAndBranch, getTotalBilling, getTotalSales } from "@/services/SalesApi";
 import { Users } from "@phosphor-icons/react";
 import { useQueries } from "@tanstack/react-query";
 import React from "react";
@@ -15,7 +15,7 @@ function formatString(str: string) {
   return number.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 export default function SalesStructure({ selectedBranchID, startDate, endDate}: salesStructureProps) {
-  const [getTotalSalesData, getTicketsByIntervalAndBranchData, getTotalBillingData] =
+  const [getTotalSalesData, getTicketsByIntervalAndBranchData, getTotalBillingData, getBestSellingProductsData] =
     useQueries({
       queries: [
         {
@@ -30,21 +30,21 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
           queryKey: ["getTotalBilling"],
           queryFn: () => getTotalBilling(startDate, endDate, selectedBranchID),
         },
-        // {
-        //   queryKey: ["qtdAssociados"],
-        //   queryFn: () => getQtdClientesComparadoMesAnterior(),
-        // },
+        {
+          queryKey: ["getBestSellingProducts"],
+          queryFn: () => getBestSellingProducts(startDate, endDate, selectedBranchID),
+        },
       ],
     });
 
-  console.log('getTotalSalesData',getTotalSalesData);
-  console.log('getTicketsByIntervalAndBranchData',getTicketsByIntervalAndBranchData);
-  console.log('getTotalBillingData',getTotalBillingData);
 
   if (
     getTotalSalesData.isLoading ||
     getTicketsByIntervalAndBranchData.isLoading ||
-    getTotalBillingData.isLoading
+    getTotalBillingData.isLoading ||
+    getBestSellingProductsData.isLoading
+
+
   ) {
     return <div>Loading...</div>;
   }
@@ -52,7 +52,8 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
   if (
     getTotalSalesData.error ||
     getTicketsByIntervalAndBranchData.error ||
-    getTotalBillingData.error
+    getTotalBillingData.error ||
+    getBestSellingProductsData.error
   ) {
     return <div>Error...</div>;
   }
@@ -90,14 +91,15 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
                   <tr>
                     <th className="text-left">Medalha</th>
                     <th className="text-left">Nome</th>
+                    <th className="text-left">Quantidade Vendida</th>
                     <th className="text-left">Valor</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {/* {topFiveVendas.map((item: any, key: any) => {
+                  {getBestSellingProductsData.data.map((item: any, key: any) => {
                     return (
                       <tr
-                        key={`${key} - item.${item.nomeClienteCompleto}`}
+                        key={`${key} - item.${item.nome}`}
                         className={`${key % 2 === 0 ? "bg-gray-200" : ""} `}
                       >
                         <td>
@@ -241,11 +243,12 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
                           )}
                           {key >= 3 && key + 1}
                         </td>
-                        <td>{item.nomeClienteCompleto}</td>
-                        <td>{item.valorVenda}</td>
+                        <td>{item.nome}</td>
+                        <td>{item.quantidade_vendida}</td>
+                        <td>{item.total_vendido}</td>
                       </tr>
                     );
-                  })} */}
+                  })}
                 </tbody>
               </table>
             </div>
