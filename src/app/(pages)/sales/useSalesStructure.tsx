@@ -20,19 +20,19 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
       queries: [
         {
           queryKey: ["getTotalSales"],
-          queryFn: () => getTotalSales(startDate, endDate, selectedBranchID),
+          queryFn: async () => getTotalSales("2023-01-01", "2024-01-01", 4),
         },
         {
           queryKey: ["getTicketsByIntervalAndBranch"],
-          queryFn: () => getTicketsByIntervalAndBranch(startDate, endDate, selectedBranchID),
+          queryFn: async () => getTicketsByIntervalAndBranch("2023-01-01", "2024-01-01", 4),
         },
         {
           queryKey: ["getTotalBilling"],
-          queryFn: () => getTotalBilling(startDate, endDate, selectedBranchID),
+          queryFn: async() => getTotalBilling("2023-01-01", "2024-01-01", 4),
         },
         {
           queryKey: ["getBestSellingProducts"],
-          queryFn: () => getBestSellingProducts(startDate, endDate, selectedBranchID),
+          queryFn:  async() => getBestSellingProducts("2023-01-01", "2024-01-01", 4),
         },
       ],
     });
@@ -56,6 +56,11 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
     getBestSellingProductsData.error
   ) {
     return <div>Error...</div>;
+  }
+
+  function formatString(str: string) {
+    const number = parseFloat(str);
+    return number.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
   return (
     <div>
@@ -245,7 +250,7 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
                         </td>
                         <td>{item.nome}</td>
                         <td>{item.quantidade_vendida}</td>
-                        <td>{item.total_vendido}</td>
+                        <td>{formatString(item.total_vendido)}</td>
                       </tr>
                     );
                   })}

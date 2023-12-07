@@ -21,7 +21,7 @@ import {
 } from "@phosphor-icons/react";
 import { useQueries, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import './styles.scss'
+import "./styles.scss";
 import { Chart } from "react-google-charts";
 import QuadrantChart from "../../../components/QuadrantChart";
 import Loading from "@/app/loading";
@@ -88,7 +88,7 @@ export default function Dashboard() {
     ObterClientesPorGeneroIdade.isLoading ||
     ObterQtdClientesAnual.isLoading
   )
-    return <Loading/>;
+    return <Loading />;
 
   if (
     faturamento.isError ||
@@ -101,6 +101,13 @@ export default function Dashboard() {
   )
     return <div>Error:</div>;
 
+  function formatString(str: string) {
+    const number = parseFloat(str);
+    return number.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  }
   return (
     <div className="bg-[#F5F8FA] flex flex-col gap-[32px] h-full w-full">
       <div className="grid-card">
@@ -128,30 +135,26 @@ export default function Dashboard() {
         <Card
           titulo="Faturamento do Mês"
           icon={<CurrencyCircleDollar size={16} />}
-          valor={faturamento.data.faturamentoComparado}
+          valor={formatString(faturamento.data.faturamentoComparado)}
           percentual={faturamento.data.porcentagemAumento}
           href={"#"}
-          isCurrency={true}
+          isCurrency={false}
         />
       </div>
 
       {/** Grid de Gráficos */}
       <div className="grid-grafics">
-
         <div className="max-h-full flex flex-row gap-4 overflow-x-hidden max-[1279px]:w-[100%] max-[766px]:flex-col max-[1279px]:flex-row max-[1279px]:pr-0">
-          
           {/** Gráfico de Clientes que mais compraram no mês */}
           <div className="flex flex-col items-start gap-18 w-full min-[1279px]:w-[50%] p-[16px] bg-[#FFF] border-[1px] border-[#E9ECEF] rounded-[4px]">
-            
             <div className="flex gap-8 flex-col justify-between w-full items-center">
-
               <div className="flex justify-between items-center w-full">
                 <span className="text-[14px] font-bold max-[1279px]:text-sm">
                   Clientes que mais compraram no mês
                 </span>
                 <Dropdown name={"Farmácia 24 Horas"} />
               </div>
-              
+
               <div className="w-full">
                 <table className="w-full">
                   <thead className="bg-white">
@@ -310,16 +313,14 @@ export default function Dashboard() {
                             {key >= 3 && key + 1}
                           </td>
                           <td>{item.nomeClienteCompleto}</td>
-                          <td>R$ {" "}{item.valorVenda}</td>
+                          <td> {formatString(item.valorVenda)}</td>
                         </tr>
                       );
                     })}
                   </tbody>
                 </table>
               </div>
-
             </div>
-
           </div>
 
           {/** Gráfico de Distribuição de Clientes por Idade ou Gênero */}
@@ -339,7 +340,6 @@ export default function Dashboard() {
               />
             </div>
           </div>
-
         </div>
 
         {/** Gráfico de Análise de Clientes e Compras - Frequência de Compra x Valor gasto */}
@@ -358,7 +358,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
       </div>
 
       {/** Gráfico de Análise de tração de clientes durante o ano */}
@@ -372,7 +371,6 @@ export default function Dashboard() {
           <LineChart data={ObterQtdClientesAnual.data} />
         </div>
       </div>
-
     </div>
   );
 }
