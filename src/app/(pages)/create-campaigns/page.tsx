@@ -154,10 +154,11 @@ export default function CreateCampaigns() {
                     className="slct-channel-CC "
                   >
                     <option selected>Escolha um Canal</option>
-                    <option value="1">Ex1</option>
-                    <option value="2">Ex2</option>
-                    <option value="3">Ex3</option>
-                    <option value="4">Ex4</option>
+                    <option value="1">Facebook</option>
+                    <option value="2">WhatsApp</option>
+                    <option value="3">Instagram</option>
+                    <option value="4">SMS</option>
+                    <option value="5">E-mail</option>
                   </select>
                 </label>
               </div>
