@@ -38,6 +38,11 @@ const quarters = {
   },
 };
 
+function formatString(str) {
+  const number = parseFloat(str);
+  return number.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
 const mapData = (data) => {
   return data.map((item) => ({
     x: item.valorVenda,
@@ -53,13 +58,13 @@ function QuadrantChart({ data }) {
   const markers = chart.marker(dataSet);
 
   chart.xAxis().title('X: Valor Gasto (R$)');
-  chart.yAxis().title('Y: Frequência de Compra');
+  chart.yAxis().title('Y: Frequência (Qtd. Compras)');
   chart.yScale().minimum(0);
   chart.yScale().maximum(1000);
   chart.xScale().minimum(0);
   chart.xScale().maximum(500000);
   chart.xAxis().ticks(true);
-  chart.xAxis().labels(true);
+  chart.xAxis().labels(true)
   chart.yAxis().ticks(true);
   chart.yAxis().labels(true);
 

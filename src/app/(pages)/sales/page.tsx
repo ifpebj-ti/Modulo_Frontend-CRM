@@ -1,11 +1,11 @@
 "use client";
-import Peaker from '@/components/datepicker';
-import Dropdown from '@/components/Dropdown';
-import { useQuery } from '@tanstack/react-query';
-import React, { use, useState } from 'react';
+import Peaker from "@/components/datepicker";
+import Dropdown from "@/components/Dropdown";
+import { useQuery } from "@tanstack/react-query";
+import React, { use, useState } from "react";
 
-import { getAvailableBranches } from '../../../services/SalesApi';
-import SalesStructure from './useSalesStructure';
+import { getAvailableBranches } from "../../../services/SalesApi";
+import SalesStructure from "./useSalesStructure";
 
 function Sales() {
   const [startDate, setStartDate] = useState(undefined);
@@ -79,13 +79,11 @@ function Sales() {
           </div>
         </div>
         <div>
-          {selectedBranchID && startDate && endDate && (
-            <SalesStructure
-              startDate={startDate}
-              endDate={endDate}
-              selectedBranchID={selectedBranchID}
-            />
-          )}
+          <SalesStructure
+            startDate={startDate}
+            endDate={endDate}
+            selectedBranchID={selectedBranchID}
+          />
         </div>
       </div>
     </div>
