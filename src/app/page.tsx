@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation"
 
 import CavalcanteLogo from "/public/logo.svg"
 
-import Input from "@/components/Input"
-import Button from "@/components/Button"
 import Footer from "@/components/Footer"
 import { SyntheticEvent, useState } from "react"
 
@@ -19,7 +17,7 @@ export default function Home() {
 
 	const login = async (event: SyntheticEvent) => {
 		event.preventDefault()
-		console.log(email, senha)
+		setLoading(true)
 
 		const result = await signIn("credentials", {
 			email,

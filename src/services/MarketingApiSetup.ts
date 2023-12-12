@@ -10,7 +10,7 @@ marketingApi.interceptors.request.use(
 		const session = await getSession()
 
 		if (session) {
-			config.headers.Authorization = `Bearer ${session}`
+			config.headers.Authorization = `Bearer ${(session as any).usuario}`
 		}
 
 		return config

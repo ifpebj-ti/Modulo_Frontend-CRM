@@ -1,8 +1,8 @@
-import axios from 'axios'
-import { getSession } from 'next-auth/react'
+import axios from "axios"
+import { getSession } from "next-auth/react"
 
 const salesApi = axios.create({
-  baseURL: 'http://150.136.54.24:8088/api/',
+	baseURL: "http://150.136.54.24:8088/api/",
 })
 
 salesApi.interceptors.request.use(
@@ -10,7 +10,7 @@ salesApi.interceptors.request.use(
 		const session = await getSession()
 
 		if (session) {
-			config.headers.Authorization = `Bearer ${session}`
+			config.headers.Authorization = `Bearer ${(session as any).usuario}`
 		}
 
 		return config
@@ -20,7 +20,4 @@ salesApi.interceptors.request.use(
 	}
 )
 
-
-export {
-  salesApi
-}
+export { salesApi }

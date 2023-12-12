@@ -1,38 +1,41 @@
-"use client"
-
 import "./styles.scss"
-import SideBard from "@/components/SideBard";
-import { MagnifyingGlass } from "@phosphor-icons/react";
+import SideBard from "@/components/SideBard"
+import { redirect } from "next/navigation"
+import { nextAuthOptions } from "../api/auth/[...nextauth]/route"
+import { getServerSession } from "next-auth"
 
-export default function PagesLayout({
-  children, // will be a page or nested layout
+export default async function PagesLayout({
+	children, // will be a page or nested layout
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode
 }) {
-  return (
-    <section className="container-layout">
+	const session = await getServerSession(nextAuthOptions)
 
-      <div className="sidebar-layout">
-        <SideBard />
-      </div>
+	if (!(session as any)?.usuario) {
+		redirect("/")
+	}
 
-      <div className="content-layout">
+	return (
+		<section className="container-layout">
+			<div className="sidebar-layout">
+				<SideBard />
+			</div>
 
-        <div className="box-menu-layout ">
-          <div className="box-search-layout">
-            <div className="search-layout">
-              <MagnifyingGlass size={18} weight="bold" color="#525466"/>
-              <input
-                type="text"
-                placeholder="Pesquise aqui"
-                className="ipt-search-layout"
-              />
-            </div>
-          </div>
-        </div>
+			<div className="content-layout">
+				<div className="box-menu-layout ">
+					<div className="box-search-layout">
+						<div className="search-layout">
+							<input
+								type="text"
+								placeholder="Pesquise aqui"
+								className="ipt-search-layout"
+							/>
+						</div>
+					</div>
+				</div>
 
-        <main className="main-layout ">{children}</main>
-      </div>
-    </section>
-  );
+				<main className="main-layout ">{children}</main>
+			</div>
+		</section>
+	)
 }

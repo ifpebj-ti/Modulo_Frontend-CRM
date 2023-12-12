@@ -22,14 +22,12 @@ const nextAuthOptions: NextAuthOptions = {
 					const response = await Login(loginCredentials)
 
 					if (response.status === 200) {
-						console.log(response)
 						const user = response.data // Certifique-se de usar a propriedade correta para acessar os dados da resposta
 						return user // Retorna o objeto de usuário se o login for bem-sucedido
 					} else {
 						return response.data // Retorna null se o login falhar
 					}
 				} catch (error) {
-					console.log(error)
 					return null // Retorna null se houver um erro durante o login
 				}
 			},
@@ -47,7 +45,7 @@ const nextAuthOptions: NextAuthOptions = {
 			return token
 		},
 		async session({ session, token }) {
-			session = token.usuario as any
+			session = token as any
 			return session
 		},
 	},
