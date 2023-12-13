@@ -14,7 +14,7 @@ function formatString(str: string) {
   const number = parseFloat(str);
   return number.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
-export default function SalesStructure({ selectedBranchID, startDate, endDate}: salesStructureProps) {
+export default function SalesStructure({ selectedBranchID, startDate, endDate }: salesStructureProps) {
   const [getTotalSalesData, getTicketsByIntervalAndBranchData, getTotalBillingData, getBestSellingProductsData] =
     useQueries({
       queries: [
@@ -28,11 +28,11 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
         },
         {
           queryKey: ["getTotalBilling"],
-          queryFn: async() => getTotalBilling("2023-01-01", "2024-01-01", 4),
+          queryFn: async () => getTotalBilling("2023-01-01", "2024-01-01", 4),
         },
         {
           queryKey: ["getBestSellingProducts"],
-          queryFn:  async() => getBestSellingProducts("2023-01-01", "2024-01-01", 4),
+          queryFn: async () => getBestSellingProducts("2023-01-01", "2024-01-01", 4),
         },
       ],
     });
@@ -63,10 +63,10 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
     return number.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
   return (
-    <div>
+    <div className="">
       {selectedBranchID && startDate && endDate ? (
         <>
-          <div className="flex gap-4">
+          <div className="flex gap-4 max-sm:flex-col ">
             <Card
               titulo="Número de Vendas do Período"
               icon={<Users size={16} />}
@@ -94,10 +94,10 @@ export default function SalesStructure({ selectedBranchID, startDate, endDate}: 
               <table className="w-full">
                 <thead className="bg-white">
                   <tr>
-                    <th className="text-left">Medalha</th>
-                    <th className="text-left">Nome</th>
-                    <th className="text-left">Quantidade Vendida</th>
-                    <th className="text-left">Valor</th>
+                    <th className="text-left max-sm:text-center">Medalha</th>
+                    <th className="text-left max-sm:text-center">Nome</th>
+                    <th className="text-left max-sm:text-center">Qtd Vendida</th>
+                    <th className="text-left max-sm:text-center">Valor</th>
                   </tr>
                 </thead>
                 <tbody>

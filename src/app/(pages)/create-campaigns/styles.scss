@@ -25,7 +25,7 @@ select:focus {
 }
 
 .container-CC {
-    @apply w-full h-full flex flex-col items-center justify-evenly gap-y-5;
+    @apply w-full h-[80vh] flex flex-col items-center justify-evenly gap-y-5;
 
     .content-CC {
         @apply w-[95%] h-full flex items-center justify-evenly flex-col bg-fc-color-700 rounded-2xl border border-solid pt-[30px] pb-[10px];
@@ -568,6 +568,8 @@ select:focus {
 /* Small Phone Styles (0-639px) */
 @media (max-width: 639px) {
     .container-CC {
+        @apply h-[85vh];
+
         .content-CC {
             @apply w-full p-0;
 
@@ -589,7 +591,7 @@ select:focus {
 
                             .l-name-CC {
                                 .text-name-CC {
-                                    @apply h-[20%] text-[0.6rem];
+                                    @apply h-[20%] text-[0.7rem];
                                 }
 
                                 .ipt-name-CC {
@@ -603,7 +605,7 @@ select:focus {
 
                             .l-period-CC {
                                 .text-period-CC {
-                                    @apply h-[20%] text-[0.6rem];
+                                    @apply h-[20%] text-[0.7rem];
                                 }
 
                                 .peaker-CC {
@@ -623,7 +625,7 @@ select:focus {
 
                             .l-img-CC {
                                 .text-img-CC {
-                                    @apply h-[20%] text-[0.6rem];
+                                    @apply h-[20%] text-[0.7rem];
                                 }
 
                                 .ipt-img-CC {
@@ -639,7 +641,7 @@ select:focus {
                                 @apply gap-0;
 
                                 .text-descript-CC {
-                                    @apply h-[20%] text-[0.6rem];
+                                    @apply h-[20%] text-[0.7rem];
                                 }
 
                                 .txt-descript-CC {
@@ -659,11 +661,11 @@ select:focus {
                                 @apply gap-0 m-0 p-0;
 
                                 .text-channel-CC {
-                                    @apply h-[20%] text-[0.6rem] flex;
+                                    @apply h-[20%] text-[0.7rem] flex;
                                 }
 
                                 .slct-channel-CC {
-                                    @apply w-[70%] h-[80%] rounded-[8px] text-[0.5rem] py-0;
+                                    @apply w-[70%] h-[80%] rounded-[8px] text-[0.6rem] py-0;
                                 }
                             }
                         }
@@ -675,11 +677,11 @@ select:focus {
                                 @apply justify-end gap-0;
 
                                 .text-meta-CC {
-                                    @apply h-[20%] text-[0.6rem];
+                                    @apply h-[20%] text-[0.7rem];
                                 }
 
                                 .ipt-meta-CC {
-                                    @apply w-[70%] h-[80%] rounded-[8px] text-[0.5rem] py-0;
+                                    @apply w-[70%] h-[80%] rounded-[8px] text-[0.6rem] py-0;
                                 }
                             }
                         }
@@ -698,8 +700,8 @@ select:focus {
                                     @apply text-[0.58rem];
                                 }
 
-                                .txta-msg-CC {
-                                    @apply rounded-[8px] text-[0.5rem] py-0;
+                                .text-msg-CC {
+                                    @apply rounded-[8px] text-[0.68rem] py-0;
                                 }
                             }
                         }
