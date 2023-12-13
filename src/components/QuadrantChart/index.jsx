@@ -7,7 +7,7 @@ const quarters = {
   rightTop: {
     fill: "#ccfff2",
     title: {
-      text: "Quadrante 4",
+      text: "Q 4",
       fontColor: "#03A64A",
       padding: 10,
     },
@@ -15,7 +15,7 @@ const quarters = {
   rightBottom: {
     fill: "#e6f9ff",
     title: {
-      text: "Quadrante 3",
+      text: "Q 3",
       fontColor: "#1959F0",
       padding: 10,
     },
@@ -23,7 +23,7 @@ const quarters = {
   leftTop: {
     fill: "#fff9e6",
     title: {
-      text: "Quadrante 2",
+      text: "Q 2",
       fontColor: "#F0D632",
       padding: 10,
     },
@@ -31,7 +31,7 @@ const quarters = {
   leftBottom: {
     fill: "#f9e6ff",
     title: {
-      text: "Quadrante 1",
+      text: "Q 1",
       fontColor: "#F01511",
       padding: 10,
     },
