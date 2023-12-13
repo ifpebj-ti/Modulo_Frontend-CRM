@@ -55,16 +55,18 @@ function Sales() {
   return (
     <div className="bg-[#F5F8FA] flex flex-col gap-[32px] h-full w-full">
       <div className="flex flex-col gap-6 justify-between  max-w-full max-h-[20%]">
-        <div className="flex gap-12 ">
-          <div className=" flex flex-col gap-2  w-[20%]">
-            <span className=" text-sm not-italic font-normal leading-[18px]">
+        <div className="flex gap-12 items-start justify-center ">
+          <div className=" flex flex-col gap-2  w-[20%] h-[80px] max-sm:w-50]">
+            <span className=" text-sm not-italic font-normal leading-[18px] h-[20%]">
               Filial
             </span>
-            <Dropdown
-              name={"Selecione Filial..."}
-              handleGetSelectedOption={handleGetSelectedOption}
-              options={availableBranches.branchs}
-            />
+            <div className="h-[56px]">
+              <Dropdown
+                name={"Selecione Filial..."}
+                handleGetSelectedOption={handleGetSelectedOption}
+                options={availableBranches.branchs}
+              />
+            </div>
           </div>
           <div className="flex flex-col gap-2 w-[30%]">
             <span className=" text-sm not-italic font-normal leading-[18px]">
@@ -73,7 +75,7 @@ function Sales() {
             <div className="w-full h-[56px] bg-fc-color-90 rounded-2xl border border-hidden">
               <Peaker
                 handleGetStartEndDate={handleGetStartEndDate}
-                className="p-3"
+                className="h-[56px] p-3"
               />
             </div>
           </div>

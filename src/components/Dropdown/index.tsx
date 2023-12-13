@@ -17,7 +17,7 @@ const Dropdown = ({ name, options, handleGetSelectedOption }: DropdownProps) => 
   };
 
   return (
-    <div className="">
+    <div className=" h-full">
       <button
         type="button"
         className=" w-fit inline-flex items-center gap-1 px-2 py-2 border border-gray-300 text-sm max-[1279px]:text-xs font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150"
@@ -29,14 +29,13 @@ const Dropdown = ({ name, options, handleGetSelectedOption }: DropdownProps) => 
       </button>
       <div
         id="dropdown-menu"
-        className={`${
-          !isDropdownOpen && "hidden"
-        } z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-gray-200 absolute`}
+        className={`${!isDropdownOpen && "hidden"
+          } z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-gray-200 absolute`}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="dropdown-trigger"
       >
-        {options?.map(({id_filial, nome}: any, index) => {
+        {options?.map(({ id_filial, nome }: any, index) => {
           return (
             <button
               key={`${id_filial} - ${index}`}
